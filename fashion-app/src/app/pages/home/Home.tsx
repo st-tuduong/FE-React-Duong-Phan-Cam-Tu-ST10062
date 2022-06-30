@@ -1,16 +1,11 @@
 import Banner from "../../shared/components/layout/Banner";
-import Collection from "../../shared/components/layout/Collection";
-import Footer from "../../shared/components/layout/Footer";
-import Header from "../../shared/components/layout/Header";
-import ProductList from "../../shared/components/layout/ProductList";
-import Product from "../../shared/components/layout/ProductList";
-import Shopify from "../../shared/components/layout/Shopify";
-import Subscribe from "../../shared/components/layout/Subscribe";
+import Collection from "../../shared/components/partials/Collection";
+import ProductList from "../../shared/components/partials/ProductList";
+import Shopify from "../../shared/components/partials/Shopify";
 
 const Home = () => {
   return (
     <>
-      <Header />
       <section className="section-banner">
         <Banner />
       </section>
@@ -24,7 +19,7 @@ const Home = () => {
                 Show More
               </a>
             </div>
-              <ProductList />
+            <ProductList />
           </div>
         </section>
         <section className="section-shopify">
@@ -34,16 +29,38 @@ const Home = () => {
           </div>
         </section>
         <section className="section-products">
-        <div className="container">
-          <h3>Products in today</h3>
+          <div className="container">
+            <h3>Products in today</h3>
             <ProductList />
-        </div>
-      </section>
-      <Subscribe />
+          </div>
+        </section>
+        <section className="section-subscribe">
+          <div className="container">
+            <div className="subscribe-list row">
+              <div className="col-6 col-sm-12">
+                <h3>
+                  Subscribe to our newsletter andreceive exclusive offers every
+                  week
+                </h3>
+              </div>
+              <div className="col-6 col-sm-12">
+                <form action="#" className="form-subscribe row">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="form-input col-sm-6"
+                  />
+                  <button className="btn btn-primary col-sm-6">
+                    SUBSCRIBE
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-      <Footer />
     </>
   );
-}
+};
 
 export default Home;

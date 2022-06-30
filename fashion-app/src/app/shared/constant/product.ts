@@ -6,6 +6,7 @@ const products = [
     img: Image.Product1,
     name: 'White T-Shirt Summer',
     price: '89.99',
+    discount: 30
   },
   {
     id: 2,
