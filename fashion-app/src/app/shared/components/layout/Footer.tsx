@@ -1,6 +1,6 @@
 import Image from "../../../asset/images";
 
-function Footer() {
+const Footer = () => {
   return (
     <footer>
       <section className="section-footer">
@@ -109,6 +109,6 @@ function Footer() {
       </section>
     </footer>
   );
-}
+};
 
 export default Footer;

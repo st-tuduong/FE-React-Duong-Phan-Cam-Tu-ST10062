@@ -116,6 +116,7 @@
     height: 100%;
     background-size: cover;
     background-position: center;
+    object-fit: cover;
   }
 }
 
@@ -169,6 +170,7 @@
     display: block;
     width: 100%;
     margin-bottom: 15px;
+    border: 1px solid #cecece;
   }
 
   .badge {
@@ -268,9 +270,9 @@
 .table-product {
   width: 100%;
   border-spacing: 0;
-} 
+}
 
-.table-product>tbody>tr {
+.table-product > tbody > tr {
   border-bottom: 1px solid #000000;
 }
 
@@ -319,7 +321,7 @@
   justify-content: center;
 }
 
-.product-img:hover .product-overlay{
+.product-img:hover .product-overlay {
   display: block;
 }
 
@@ -328,7 +330,6 @@
   position: absolute;
   bottom: 30px;
 }
-
 
 .section-subscribe {
   background: url(../asset/images/subscribebg.svg);
@@ -469,11 +470,10 @@
     }
   }
 
-.sub-total {
-  color: #000000;
-  font-size: 16px;
-}
-
+  .sub-total {
+    color: #000000;
+    font-size: 16px;
+  }
 
   // Shopify
   .section-shopify {
@@ -543,7 +543,9 @@
   font-size: 30px;
 }
 
-.quantity-down, .quantity-up, .quantity-delete {
+.quantity-down,
+.quantity-up,
+.quantity-delete {
   padding: 10px;
   color: #000000;
   font-weight: 600;
