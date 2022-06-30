@@ -1,6 +1,6 @@
 export interface IShopify {
-  img: string,
-  alt: string,
-  title: string,
-  text: string
+  img: string;
+  alt: string;
+  title: string;
+  text: string;
 }
