@@ -1,13 +1,11 @@
 import campaigns from "../../shared/constant/campaign";
 import collections from "../../shared/constant/collection";
-import products from "../../shared/constant/product";
-import shopifys from "../../shared/constant/shopify";
-import Banner from "../partials/Banner";
+import Banner from "../partials/SectionBanner";
 import CollectionList from "../partials/CollectionList";
 import SectionForYou from "../partials/SectionForYou";
 import SectionToDay from "../partials/SectionToDay";
-import ShopifyList from "../partials/ShopifyList";
-import Subscribe from "../partials/Subscribe";
+import Subscribe from "../partials/SectionSubscribe";
+import SectionShopify from "../partials/SectionShopify";
 
 const Home = () => {
   return (
@@ -16,7 +14,7 @@ const Home = () => {
       <main>
         <CollectionList collections={collections} />
         <SectionForYou />
-        <ShopifyList shopifys={shopifys} />
+        <SectionShopify />
         <SectionToDay />
         <Subscribe />
       </main>
