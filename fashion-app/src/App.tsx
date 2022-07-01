@@ -7,6 +7,7 @@ import Footer from "./app/shared/components/layout/Footer";
 import Cart from "./app/pages/Cart";
 
 const App = () => {
+  
   return (
   <BrowserRouter>
   <Header />

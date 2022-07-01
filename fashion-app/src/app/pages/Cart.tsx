@@ -1,7 +1,7 @@
 const Cart = () => {
-  return ( 
+  return (
     <>
-    <section className="product-view">
+      <section className="product-view">
         <div className="container">
           <table className="table table-product">
             <thead>
@@ -15,111 +15,132 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {/* <tr>
-                <td class="cart-product">
-                  <a href=""><img src="images/pr1.png" alt=""></a>
-                </td>
-                <td class="cart-description">
-                  <h4><a href="#">White T-Shirt Summer</a></h4>
-                </td>
-                <td class="cart-price">
-                  <p>$89.99</p>
-                </td>
-                <td class="cart-quantity">
-                  <div class="cart-quantitybutton">
-                    <a class="cart_quantityup" href=""> + </a>
-                    <input class="cart-quantityinput" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                    <a class="cart-quantitydown" href=""> - </a>
-                  </div>
-                </td>
-                <td class="cart-total">
-                  <p class="cart-totalprice">$89.99</p>
-                </td>
-                <td class="cart-delete">
-                  <a class="cart-quantitydelete" href=""><i class="fa fa-times"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td class="cart-product">
-                  <a href=""><img src="images/pr1.png" alt=""></a>
-                </td>
-                <td class="cart-description">
-                  <h4><a href="#">White T-Shirt Summer</a></h4>
-                </td>
-                <td class="cart-price">
-                  <p>$89.99</p>
-                </td>
-                <td class="cart-quantity">
-                  <div class="cart-quantitybutton">
-                    <a class="cart_quantityup" href=""> + </a>
-                    <input class="cart-quantityinput" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                    <a class="cart-quantitydown" href=""> - </a>
-                  </div>
-                </td>
-                <td class="cart-total">
-                  <p class="cart-totalprice">$59</p>
-                </td>
-                <td class="cart-delete">
-                  <a class="cart-quantitydelete" href=""><i class="fa fa-times"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td class="cart-product">
-                  <a href=""><img src="images/pr1.png" alt=""></a>
-                </td>
-                <td class="cart-description">
-                  <h4><a href="#">White T-Shirt Summer</a></h4>
-                </td>
-                <td class="cart-price">
-                  <p>$59</p>
-                </td>
-                <td class="cart-quantity">
-                  <div class="cart-quantitybutton">
-                    <a class="cart_quantityup" href=""> + </a>
-                    <input class="cart-quantityinput" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                    <a class="cart-quantitydown" href=""> - </a>
-                  </div>
-                </td>
-                <td class="cart-total">
-                  <p class="cart-totalprice">$89.99</p>
-                </td>
-                <td class="cart-delete">
-                  <a class="cart-quantitydelete" href=""><i class="fa fa-times"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td class="cart-product">
-                  <a href=""><img src="images/pr1.png" alt=""></a>
-                </td>
-                <td class="cart-description">
-                  <h4><a href="#">White T-Shirt Summer</a></h4>
-                </td>
-                <td class="cart-price">
-                  <p>$59</p>
-                </td>
-                <td class="cart-quantity">
-                  <div class="cart-quantitybutton">
-                    <a class="cart_quantityup" href=""> + </a>
-                    <input class="cart-quantityinput" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                    <a class="cart-quantitydown" href=""> - </a>
-                  </div>
-                </td>
-                <td class="cart-total">
-                  <p class="cart-totalprice">$59</p>
-                </td>
-                <td class="cart-delete">
-                  <a class="cart-quantitydelete" href=""><i class="fa fa-times"></i></a>
-                </td>
-              </tr>  */}
+              <a href="">
+                <img src="images/pr1.png" alt="" />
+              </a>
+              <h4>
+                <a href="#">White T-Shirt Summer</a>
+              </h4>
+              <p>$89.99</p>
+              <div className="cart-quantitybutton">
+                <a className="cart_quantityup" href="">
+                  {" "}
+                  +{" "}
+                </a>
+                <input
+                  className="cart-quantityinput"
+                  type="text"
+                  name="quantity"
+                  defaultValue={1}
+                  autoComplete="off"
+                  size={2}
+                />
+                <a className="cart-quantitydown" href="">
+                  {" "}
+                  -{" "}
+                </a>
+              </div>
+              <p className="cart-totalprice">$89.99</p>
+              <a className="cart-quantitydelete" href="">
+                <i className="fa fa-times" />
+              </a>
+              <a href="">
+                <img src="images/pr1.png" alt="" />
+              </a>
+              <h4>
+                <a href="#">White T-Shirt Summer</a>
+              </h4>
+              <p>$89.99</p>
+              <div className="cart-quantitybutton">
+                <a className="cart_quantityup" href="">
+                  {" "}
+                  +{" "}
+                </a>
+                <input
+                  className="cart-quantityinput"
+                  type="text"
+                  name="quantity"
+                  defaultValue={1}
+                  autoComplete="off"
+                  size={2}
+                />
+                <a className="cart-quantitydown" href="">
+                  {" "}
+                  -{" "}
+                </a>
+              </div>
+              <p className="cart-totalprice">$59</p>
+              <a className="cart-quantitydelete" href="">
+                <i className="fa fa-times" />
+              </a>
+              <a href="">
+                <img src="images/pr1.png" alt="" />
+              </a>
+              <h4>
+                <a href="#">White T-Shirt Summer</a>
+              </h4>
+              <p>$59</p>
+              <div className="cart-quantitybutton">
+                <a className="cart_quantityup" href="">
+                  {" "}
+                  +{" "}
+                </a>
+                <input
+                  className="cart-quantityinput"
+                  type="text"
+                  name="quantity"
+                  defaultValue={1}
+                  autoComplete="off"
+                  size={2}
+                />
+                <a className="cart-quantitydown" href="">
+                  {" "}
+                  -{" "}
+                </a>
+              </div>
+              <p className="cart-totalprice">$89.99</p>
+              <a className="cart-quantitydelete" href="">
+                <i className="fa fa-times" />
+              </a>
+              <a href="">
+                <img src="images/pr1.png" alt="" />
+              </a>
+              <h4>
+                <a href="#">White T-Shirt Summer</a>
+              </h4>
+              <p>$59</p>
+              <div className="cart-quantitybutton">
+                <a className="cart_quantityup" href="">
+                  {" "}
+                  +{" "}
+                </a>
+                <input
+                  className="cart-quantityinput"
+                  type="text"
+                  name="quantity"
+                  defaultValue={1}
+                  autoComplete="off"
+                  size={2}
+                />
+                <a className="cart-quantitydown" href="">
+                  {" "}
+                  -{" "}
+                </a>
+              </div>
+              <p className="cart-totalprice">$59</p>
+              <a className="cart-quantitydelete" href="">
+                <i className="fa fa-times" />
+              </a>
             </tbody>
           </table>
           <div className="sub-total">
             <h4>Total</h4>
             <span className="price-total" />
-          </div>  
+          </div>
         </div>
-      </section></>
-   );
-}
+      </section>
+    </>
+  );
+};
 
 export default Cart;
