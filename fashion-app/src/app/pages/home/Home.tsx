@@ -2,21 +2,22 @@ import campaigns from "../../shared/constant/campaign";
 import collections from "../../shared/constant/collection";
 import products from "../../shared/constant/product";
 import shopifys from "../../shared/constant/shopify";
-import Banner from "../partials/banner/Banner";
-import CollectionList from "../partials/collection/CollectionList";
-import ProductList from "../partials/product/ProductList";
-import ShopifyList from "../partials/shopify/ShopifyList";
-import Subscribe from "../partials/subscribe/Subscribe";
+import Banner from "../partials/Banner";
+import CollectionList from "../partials/CollectionList";
+import SectionForYou from "../partials/SectionForYou";
+import SectionToDay from "../partials/SectionToDay";
+import ShopifyList from "../partials/ShopifyList";
+import Subscribe from "../partials/Subscribe";
 
 const Home = () => {
   return (
     <>
-      <Banner campaigns = {campaigns}/>
+      <Banner campaigns={campaigns} />
       <main>
-        <CollectionList collections = {collections}/>
-        <ProductList products= {products} title="Selected just for you" hasButton={true}/>
-        <ShopifyList shopifys={shopifys}/>
-        <ProductList products={products} title="Products in today" hasButton={false}/>
+        <CollectionList collections={collections} />
+        <SectionForYou />
+        <ShopifyList shopifys={shopifys} />
+        <SectionToDay />
         <Subscribe />
       </main>
     </>

@@ -1,4 +1,4 @@
-import Button from "../../../shared/components/partials/Button";
+import Button from "../../shared/components/partials/Button";
 
 const Subscribe = () => {
   return (
@@ -17,7 +17,7 @@ const Subscribe = () => {
                 placeholder="Enter your email"
                 className="form-input col-sm-6"
               />
-              <Button type="primary" classCol="col-sm-6" text="SUBSCRIBE"/>
+              <Button type="primary" classCol="col-sm-6" text="SUBSCRIBE" />
             </form>
           </div>
         </div>

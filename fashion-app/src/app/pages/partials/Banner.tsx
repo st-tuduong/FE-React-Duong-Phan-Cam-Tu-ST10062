@@ -1,11 +1,11 @@
-import Icon from "../../../asset/icon";
-import { ICampaign } from "../../../shared/interfaces/campaign";
+import Icon from "../../asset/icon";
+import { ICampaign } from "../../shared/interfaces/campaign";
 import CampaignItem from "./CampaignItem";
 
-interface CampaignListProps {
+interface ICampaignListProps {
   campaigns: ICampaign[];
 }
-const Banner = ({ campaigns }: CampaignListProps) => {
+const Banner = ({ campaigns }: ICampaignListProps) => {
   return (
     <section className="section-banner">
       <div className="container">

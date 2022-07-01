@@ -1,4 +1,4 @@
-import { ICampaign } from "../../../shared/interfaces/campaign";
+import { ICampaign } from "../../shared/interfaces/campaign";
 
 const CampaignItem = ({ img, alt, title, text }: ICampaign) => {
   return (

@@ -1,11 +1,11 @@
-import { ICollection } from "../../../shared/interfaces/collection";
+import { ICollection } from "../../shared/interfaces/collection";
 import CollectionItem from "./CollectionItem";
 
-interface CollectionListProp {
+interface ICollectionListProp {
   collections: ICollection[];
 }
 
-const CollectionList = ({ collections }: CollectionListProp) => {
+const CollectionList = ({ collections }: ICollectionListProp) => {
   return (
     <section className="section-collection">
       <div className="container">

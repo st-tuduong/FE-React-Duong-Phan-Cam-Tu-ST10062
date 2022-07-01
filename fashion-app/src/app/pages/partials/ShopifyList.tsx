@@ -1,11 +1,11 @@
-import { IShopify } from "../../../shared/interfaces/shopify";
+import { IShopify } from "../../shared/interfaces/shopify";
 import ShopifyItem from "./ShopifyItem";
 
-interface ShopifyListProps {
+interface IShopifyListProps {
   shopifys: IShopify[];
 }
 
-const ShopifyList = ({ shopifys }: ShopifyListProps) => {
+const ShopifyList = ({ shopifys }: IShopifyListProps) => {
   return (
     <section className="section-shopify">
       <div className="container">

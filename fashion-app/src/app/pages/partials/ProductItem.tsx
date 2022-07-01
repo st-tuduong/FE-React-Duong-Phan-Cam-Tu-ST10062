@@ -1,5 +1,5 @@
-import Link from "../../../shared/components/partials/Link";
-import { IProduct } from "../../../shared/interfaces/product";
+import Link from "../../shared/components/partials/Link";
+import { IProduct } from "../../shared/interfaces/product";
 
 const ProductItem = ({ name, price, img, discount }: IProduct) => {
   return (
