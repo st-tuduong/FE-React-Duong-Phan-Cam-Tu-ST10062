@@ -3,18 +3,21 @@ import ProductItem from "./ProductItem";
 
 interface ProductListProps {
   products: IProduct[];
+  title: string,
+  hasButton: boolean
 }
 
 
-const ProductList = ({ products }: ProductListProps) => {
+
+const ProductList = ({ products, title, hasButton}: ProductListProps) => {
   return (
     <section className="section-foryou">
       <div className="container">
         <div className="section-title">
-          <h3>Selected just for you</h3>
-          <a href="#" className="btn btn-secondary">
+          <h3>{title}</h3>
+          {hasButton && <a href="#" className="btn btn-secondary">
             Show More
-          </a>
+          </a>}
         </div>
         <ul className="product-list row">
           {products.map((product: any) => {

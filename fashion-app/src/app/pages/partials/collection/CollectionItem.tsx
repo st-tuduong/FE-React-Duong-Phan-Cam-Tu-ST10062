@@ -1,5 +1,5 @@
+import Link from "../../../shared/components/partials/Link";
 import { ICollection } from "../../../shared/interfaces/collection";
-import Button from "../../../shared/partials/button";
 
 const CollectionItem = ({
   classCol,
@@ -20,7 +20,7 @@ const CollectionItem = ({
             </span>
           )}
           <h4>{title}</h4>
-          <Button text={textBtn} type="secondary" />
+          <Link text={textBtn} type="secondary"/>
         </div>
       </div>
     </li>

@@ -14,9 +14,9 @@ const Home = () => {
       <Banner campaigns = {campaigns}/>
       <main>
         <CollectionList collections = {collections}/>
-        <ProductList products= {products}/>
+        <ProductList products= {products} title="Selected just for you" hasButton={true}/>
         <ShopifyList shopifys={shopifys}/>
-        <ProductList products={products} />
+        <ProductList products={products} title="Products in today" hasButton={false}/>
         <Subscribe />
       </main>
     </>

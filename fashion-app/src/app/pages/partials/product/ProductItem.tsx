@@ -1,5 +1,5 @@
+import Link from "../../../shared/components/partials/Link";
 import { IProduct } from "../../../shared/interfaces/product";
-import Button from "../../../shared/partials/button";
 
 const ProductItem = ({ name, price, img, discount }: IProduct) => {
   return (
@@ -10,7 +10,7 @@ const ProductItem = ({ name, price, img, discount }: IProduct) => {
         )}
         <img src={img} alt="T-Shirt Summer Vibes" />
         <div className="product-overlay">
-          <Button text="ADD TO CART" type="primary" />
+          <Link text="ADD TO CART" type="primary" />
         </div>
       </div>
       <h4>{name}</h4>

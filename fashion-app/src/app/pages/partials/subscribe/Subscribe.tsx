@@ -1,3 +1,5 @@
+import Button from "../../../shared/components/partials/Button";
+
 const Subscribe = () => {
   return (
     <section className="section-subscribe">
@@ -15,7 +17,7 @@ const Subscribe = () => {
                 placeholder="Enter your email"
                 className="form-input col-sm-6"
               />
-              <button className="btn btn-primary col-sm-6">SUBSCRIBE</button>
+              <Button type="primary" classCol="col-sm-6" text="SUBSCRIBE"/>
             </form>
           </div>
         </div>
