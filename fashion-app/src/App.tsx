@@ -4,10 +4,14 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./app/pages/home/Home";
 import Header from "./app/shared/components/layout/Header";
 import Footer from "./app/shared/components/layout/Footer";
-import Cart from "./app/pages/Cart";
+import Cart from "./app/pages/cart/Cart";
+import { useEffect } from "react";
+import { getData } from "./app/shared/helpers/localStorage";
 
 const App = () => {
-  
+  useEffect(() => {
+    getData('cart')
+  })
   return (
   <BrowserRouter>
   <Header />

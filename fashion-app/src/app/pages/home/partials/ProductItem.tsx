@@ -1,25 +1,28 @@
 import Button from "../../../shared/components/partials/Button";
-import products from "../../../shared/constant/product";
+import { getData, storeData } from "../../../shared/helpers/localStorage";
+import { ICart } from "../../../shared/interfaces/cart";
 import { IProduct } from "../../../shared/interfaces/product";
 
 const ProductItem = ({ id, name, price, img, discount }: IProduct) => {
-  const handleAddToCart = (e: Event) => {
-    const storageItem = localStorage.getItem("cart") || '{}';    
-    const product = products.find((item) => item.id === id);    
-      const listItem = JSON.parse(storageItem);
-      if (listItem[id]) {
-        listItem[id].qty += 1;
-      }else {
-        listItem[id] = {
-          id: id,
-          name: product?.name,
-          price: product?.price,
-          img: product?.img,
-          discount: product?.discount,
-          qty: 1,
-        };
-      }
-      localStorage.setItem("cart", JSON.stringify(listItem));
+  const handleAddToCart = (id: number) => {
+    const productList = getData("cart") || [];
+    const productItem: ICart = productList.find(
+      (item: ICart) => item.id === id
+    );
+    if (productItem) {
+      productItem.qty += 1;
+    } else {
+      const dataItem = {
+        id,
+        img,
+        name,
+        price,
+        discount,
+        qty: 1
+      };
+      productList.push(dataItem);
+    }
+    storeData("cart", productList);
   };
   return (
     <li className="product-item product-sale col-3 col-sm-6">
@@ -32,8 +35,9 @@ const ProductItem = ({ id, name, price, img, discount }: IProduct) => {
           <Button
             text="ADD TO CART"
             type="primary"
+            className="btn-addcart"
             classCol=""
-            onClick={handleAddToCart}
+            onClick={() => handleAddToCart(id)}
           />
         </div>
       </div>
