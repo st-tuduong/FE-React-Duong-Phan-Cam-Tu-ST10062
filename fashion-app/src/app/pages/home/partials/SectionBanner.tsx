@@ -1,4 +1,4 @@
-import Icon from "../../../asset/icon";
+import Icon from "../../../assets/icon";
 import { ICampaign } from "../../../shared/interfaces/campaign";
 import CampaignItem from "./CampaignItem";
 

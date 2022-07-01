@@ -328,7 +328,7 @@ header {
 }
 .section-banner {
   position: relative;
-  background: url(../asset/images/bg.png);
+  background: url(../assets/images/bg.png);
   background-size: cover;
   height: 800px;
   margin-bottom: 48px;
@@ -646,7 +646,7 @@ header {
 }
 
 .section-subscribe {
-  background: url(../asset/images/subscribebg.svg);
+  background: url(../assets/images/subscribebg.svg);
   background-position: center;
   background-size: cover;
   height: 241px;
@@ -693,7 +693,7 @@ header {
 
 @media only screen and (max-width: 575px) {
   .section-banner {
-    background: url(../asset/images/bgmobile.png);
+    background: url(../assets/images/bgmobile.png);
     height: 740px;
   }
   .section-banner .banner-content {
