@@ -11,11 +11,12 @@ const ProductList = ({ products }: IProductListProps) => {
       {products.map((product: IProduct) => {
         return (
           <ProductItem
+            key={product.id}
             id={product.id}
             name={product.name}
-            price={product.price}
             img={product.img}
             discount={product.discount}
+            price={product.price}
           />
         );
       })}

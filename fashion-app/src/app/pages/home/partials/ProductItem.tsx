@@ -3,28 +3,26 @@ import { getData, storeData } from "../../../shared/helpers/localStorage";
 import { ICart } from "../../../shared/interfaces/cart";
 import { IProduct } from "../../../shared/interfaces/product";
 
-const ProductItem = ({ id, name, price, img, discount }: IProduct) => {
-  const handleAddToCart = (id: number) => {
-    const productList = getData("cart") || [];
-    const productItem: ICart = productList.find(
-      (item: ICart) => item.id === id
-    );
-    if (productItem) {
-      productItem.qty += 1;
-    } else {
-      const dataItem = {
-        id,
-        img,
-        name,
-        price,
-        discount,
-        qty: 1
-      };
-      productList.push(dataItem);
-    }
-    storeData("cart", productList);
-  };
-  return (
+  const ProductItem = ({ id, name, price, img, discount }: IProduct) => {
+    const handleAddToCart = (id: number) => {
+      const productList = getData("cart") || [];
+      const productItem: ICart = productList.find((item: ICart) => item.id === id);
+      if (productItem) {
+        productItem.qty += 1;
+      } else {
+        const dataItem = {
+          id,
+          img,
+          name,
+          price,
+          discount,
+          qty: 1
+        };
+        productList.push(dataItem);
+      }
+      storeData("cart", productList);
+    };  
+    return (
     <li className="product-item product-sale col-3 col-sm-6">
       <div className="product-img">
         {discount !== 0 && (

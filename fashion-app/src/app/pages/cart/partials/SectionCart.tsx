@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../../shared/components/partials/Button";
 import { getData } from "../../../shared/helpers/localStorage";
+import { ICart } from "../../../shared/interfaces/cart";
 import CartList from "./CartList";
 
 const SectionCart = () => {
-  const initialCart = getData("cart") || [];
-  const [cart, setCart] = useState(initialCart);
-
+  const [cart, setCart] = useState<ICart[]>([])
+  useEffect(() => {
+    const cartItem: ICart[] = getData('cart')
+    if(cartItem)
+    setCart(cartItem)
+  }, [])
   return (
     <>
       <table className="table table-product col-9">
@@ -20,7 +24,7 @@ const SectionCart = () => {
             <td />
           </tr>
         </thead>
-        <CartList carts={cart} />
+        <CartList carts={cart} setCart={setCart}/>
       </table>
       <div className="sub-total col-3">
         <h4>Total</h4>

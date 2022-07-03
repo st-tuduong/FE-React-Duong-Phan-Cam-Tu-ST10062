@@ -1,7 +1,16 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import App from "../../../../App";
+import { getData } from "../../helpers/localStorage";
+import { ICart } from "../../interfaces/cart";
 
 const Header = () => {
+  const [cart, setCart] = useState<ICart[]>([])
+  useEffect(() => {
+    const cartItem: ICart[] = getData('cart')
+    if(cartItem)
+    setCart(cartItem)
+  }, [cart])
+  const numberQuantity = cart.reduce((total: number, item: ICart) => total + item.qty,0);
   return (
     <header>
       <div className="container">
@@ -73,7 +82,7 @@ const Header = () => {
                     fill="white"
                   />
                 </svg>
-                <span className="qty">0</span>
+                <span className="qty">{numberQuantity}</span>
               </Link>
             </li>
             <li className="action-list">
@@ -97,6 +106,6 @@ const Header = () => {
       </div>
     </header>
   );
-}
+};
 
 export default Header;
