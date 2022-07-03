@@ -17,7 +17,12 @@ const Subscribe = () => {
                 placeholder="Enter your email"
                 className="form-input col-sm-6"
               />
-              <Button className="btn-subscribe" type="primary" classCol="col-sm-6" text="SUBSCRIBE" />
+              <Button
+                className="btn-subscribe"
+                type="primary"
+                classCol="col-sm-6"
+                text="SUBSCRIBE"
+              />
             </form>
           </div>
         </div>

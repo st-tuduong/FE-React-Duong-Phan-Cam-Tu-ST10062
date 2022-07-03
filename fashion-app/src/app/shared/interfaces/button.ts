@@ -3,5 +3,5 @@ export interface IButton {
   text: string;
   classCol: string;
   className: string;
-  onClick?: (e?:any) => void ;
+  onClick?: (e?: any) => void;
 }

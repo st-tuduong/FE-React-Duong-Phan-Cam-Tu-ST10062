@@ -12,7 +12,7 @@ const CollectionItem = ({
   return (
     <li className={classCol}>
       <div className="collection-item">
-        <img src={img} alt="New arrivalsare now in!" />
+        <img src={img} alt={alt} />
         <div className="collection-content">
           {discount !== 0 && (
             <span className="badge badge-danger badge-collection">

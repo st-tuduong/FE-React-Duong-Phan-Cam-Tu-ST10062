@@ -750,6 +750,9 @@ table {
   .section-title a {
     border: 0;
   }
+  .section-title .title-center h3 {
+    text-align: center;
+  }
   .product-item {
     height: 268px;
     margin-bottom: 12px;

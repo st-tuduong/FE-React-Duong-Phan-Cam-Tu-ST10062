@@ -1,6 +1,5 @@
-import Button from "../../../shared/components/partials/Button";
-import { ICart } from "../../../shared/interfaces/cart";
 import CartItem from "./CartItem";
+import { ICart } from "../../../shared/interfaces/cart";
 
 interface ICartListProps {
   carts: ICart[];
@@ -8,12 +7,17 @@ interface ICartListProps {
   setCart: any;
 }
 
-const CartList = ({ carts,cart, setCart }: ICartListProps) => {
+const CartList = ({ carts, cart, setCart }: ICartListProps) => {
   return (
     <tbody className="product-list">
       {carts.map((cartItem: ICart) => {
         return (
-          <CartItem key={cartItem.id} cartItem={cartItem} setCart={setCart} cart={cart}/>
+          <CartItem
+            key={cartItem.id}
+            cartItem={cartItem}
+            setCart={setCart}
+            cart={cart}
+          />
         );
       })}
     </tbody>

@@ -1,40 +1,37 @@
 import { useState } from "react";
 import Button from "../../../shared/components/partials/Button";
-import { getData, storeData } from "../../../shared/helpers/localStorage";
+import { storeData } from "../../../shared/helpers/localStorage";
 import { ICart } from "../../../shared/interfaces/cart";
 
 interface ICartItemProps {
   cartItem: ICart;
-  cart: any
+  cart: any;
   setCart: any;
 }
 
-const CartItem = ({cartItem, cart, setCart}: ICartItemProps) => {
+const CartItem = ({ cartItem, cart, setCart }: ICartItemProps) => {
   const [quantity, setQuantity] = useState(cartItem.qty);
-  const listCart = getData("cart") || [];
-  const index = listCart.findIndex((item: ICart) => item.id === cartItem.id)
+  const index = cart.findIndex((item: ICart) => item.id === cartItem.id);
+  const totalCart = (
+    cartItem.price -
+    (cartItem.price * cartItem.discount) / 100
+  ).toFixed(2);
 
-  const totalCart = (cartItem.price - (cartItem.price * cartItem.discount) / 100).toFixed(2);
-
-  const handleUpdateQuantity = (isIncreased = true) => {
-    if(isIncreased) {
-      listCart[index].qty += 1;
-      setQuantity(quantity+1)
-    }else if(cartItem.qty > 1) {
-      listCart[index].qty -= 1;
-      setQuantity(quantity-1)
-    }else {
-      listCart.splice(index, 1)
+  const handleUpdateQuantity = (value: number) => {
+    cart[index].qty += value;
+    setQuantity(quantity + value);
+    if (cartItem.qty === 0) {
+      cart.splice(index, 1);
     }
-    setCart(listCart)
-    storeData('cart', listCart)  
+    setCart([...cart]);
+    storeData("cart", [...cart]);
   };
 
   const handleRemoveItem = () => {
-    listCart.splice(index, 1);
-    setCart(listCart)
-    storeData('cart', listCart) 
-  }
+    cart.splice(index, 1);
+    setCart([...cart]);
+    storeData("cart", [...cart]);
+  };
 
   return (
     <tr className="product-item">
@@ -45,11 +42,14 @@ const CartItem = ({cartItem, cart, setCart}: ICartItemProps) => {
         <h3>{cartItem.name}</h3>
       </td>
       <td className="product-price">
-        ${(cartItem.price - (cartItem.price * cartItem.discount) / 100).toFixed(2)}
+        $
+        {(cartItem.price - (cartItem.price * cartItem.discount) / 100).toFixed(
+          2
+        )}
       </td>
       <td className="cart-quantitybutton">
-        <a className="quantity-up" onClick={() => handleUpdateQuantity(true)}>
-          <i className="fa-solid fa-plus"></i>
+        <a className="quantity-down" onClick={() => handleUpdateQuantity(-1)}>
+          <i className="fa-solid fa-minus"></i>
         </a>
         <input
           className="quantity-input"
@@ -57,13 +57,11 @@ const CartItem = ({cartItem, cart, setCart}: ICartItemProps) => {
           name="quantity"
           value={quantity}
         />
-        <a className="quantity-down" onClick={() => handleUpdateQuantity(false)}>
-          <i className="fa-solid fa-minus"></i>
+        <a className="quantity-up" onClick={() => handleUpdateQuantity(1)}>
+          <i className="fa-solid fa-plus"></i>
         </a>
       </td>
-      <td className="cart-totalprice">
-        ${totalCart}
-      </td>
+      <td className="cart-totalprice">${totalCart}</td>
       <td>
         <Button
           className="cart-quantitydelete"
