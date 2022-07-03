@@ -7,15 +7,15 @@ import SectionToDay from "./partials/SectionToDay";
 import Subscribe from "./partials/SectionSubscribe";
 import SectionShopify from "./partials/SectionShopify";
 
-const Home = () => {
+const Home = ({cart, setCart} : any) => {
   return (
     <>
       <Banner campaigns={campaigns} />
       <main>
         <CollectionList collections={collections} />
-        <SectionForYou />
+        <SectionForYou cart={cart} setCart={setCart}/>
         <SectionShopify />
-        <SectionToDay />
+        <SectionToDay cart={cart} setCart={setCart}/>
         <Subscribe />
       </main>
     </>

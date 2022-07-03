@@ -2,12 +2,12 @@ import TitleProduct from "../../../shared/components/partials/SectionTitle";
 import products from "../../../shared/constant/product";
 import ProductList from "./ProductList";
 
-const SectionForYou = () => {
+const SectionForYou = ({cart, setCart} : any) => {
   return (
     <section className="section-foryou">
       <div className="container">
         <TitleProduct title="Selected just for you" hasButton={true} />
-        <ProductList products={products}/>
+        <ProductList products={products} cart={cart} setCart={setCart}/>
       </div>
     </section>
   );

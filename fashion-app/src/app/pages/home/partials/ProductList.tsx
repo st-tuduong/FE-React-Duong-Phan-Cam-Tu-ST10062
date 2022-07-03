@@ -3,9 +3,11 @@ import ProductItem from "./ProductItem";
 
 interface IProductListProps {
   products: IProduct[];
+  cart: any
+  setCart: any
 }
 
-const ProductList = ({ products }: IProductListProps) => {
+const ProductList = ({ products, cart, setCart }: IProductListProps) => {
   return (
     <ul className="product-list row">
       {products.map((product: IProduct) => {
@@ -17,6 +19,8 @@ const ProductList = ({ products }: IProductListProps) => {
             img={product.img}
             discount={product.discount}
             price={product.price}
+            cart={cart}
+            setCart={setCart}
           />
         );
       })}

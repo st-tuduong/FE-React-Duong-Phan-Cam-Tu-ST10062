@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { getData } from "../../helpers/localStorage";
 import { ICart } from "../../interfaces/cart";
 
-const Header = () => {
-  const [cart, setCart] = useState<ICart[]>([])
-  useEffect(() => {
-    const cartItem: ICart[] = getData('cart')
-    if(cartItem)
-    setCart(cartItem)
-  }, [cart])
+const Header = ({cart}: any) => {
+  // const [cart, setCart] = useState<ICart[]>([])
+  // useEffect(() => {
+  //   const cartItem: ICart[] = getData('cart')
+  //   if(cartItem)
+  //   setCart(cartItem)
+  // }, [cart])
   const numberQuantity = cart.reduce((total: number, item: ICart) => total + item.qty,0);
   return (
     <header>

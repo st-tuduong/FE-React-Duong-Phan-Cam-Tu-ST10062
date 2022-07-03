@@ -4,15 +4,16 @@ import CartItem from "./CartItem";
 
 interface ICartListProps {
   carts: ICart[];
-  setCart: any
+  cart: any;
+  setCart: any;
 }
 
-const CartList = ({ carts, setCart }: ICartListProps) => {
+const CartList = ({ carts,cart, setCart }: ICartListProps) => {
   return (
     <tbody className="product-list">
-      {carts.map((cartItem) => {
+      {carts.map((cartItem: ICart) => {
         return (
-          <CartItem key={cartItem.id} cartItem={cartItem} setCart={setCart}/>
+          <CartItem key={cartItem.id} cartItem={cartItem} setCart={setCart} cart={cart}/>
         );
       })}
     </tbody>

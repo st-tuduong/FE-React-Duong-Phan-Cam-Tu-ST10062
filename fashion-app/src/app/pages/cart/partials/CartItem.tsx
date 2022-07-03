@@ -5,10 +5,11 @@ import { ICart } from "../../../shared/interfaces/cart";
 
 interface ICartItemProps {
   cartItem: ICart;
+  cart: any
   setCart: any;
 }
 
-const CartItem = ({cartItem, setCart}: ICartItemProps) => {
+const CartItem = ({cartItem, cart, setCart}: ICartItemProps) => {
   const [quantity, setQuantity] = useState(cartItem.qty);
   const listCart = getData("cart") || [];
   const index = listCart.findIndex((item: ICart) => item.id === cartItem.id)

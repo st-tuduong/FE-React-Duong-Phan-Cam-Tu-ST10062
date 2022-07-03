@@ -3,7 +3,7 @@ import { getData, storeData } from "../../../shared/helpers/localStorage";
 import { ICart } from "../../../shared/interfaces/cart";
 import { IProduct } from "../../../shared/interfaces/product";
 
-  const ProductItem = ({ id, name, price, img, discount }: IProduct) => {
+  const ProductItem = ({ id, name, price, img, discount, cart, setCart }: IProduct) => {
     const handleAddToCart = (id: number) => {
       const productList = getData("cart") || [];
       const productItem: ICart = productList.find((item: ICart) => item.id === id);
@@ -20,6 +20,7 @@ import { IProduct } from "../../../shared/interfaces/product";
         };
         productList.push(dataItem);
       }
+      setCart(productList);      
       storeData("cart", productList);
     };  
     return (
