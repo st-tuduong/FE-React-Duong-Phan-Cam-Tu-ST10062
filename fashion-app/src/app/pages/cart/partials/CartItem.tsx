@@ -12,11 +12,8 @@ interface ICartItemProps {
 const CartItem = ({ cartItem, cart, setCart }: ICartItemProps) => {
   const [quantity, setQuantity] = useState(cartItem.qty);
   const index = cart.findIndex((item: ICart) => item.id === cartItem.id);
-  const totalCart = (
-    cartItem.price -
-    (cartItem.price * cartItem.discount) / 100
-  ).toFixed(2);
-
+  const totalCart = (cartItem.price -(cartItem.price * cartItem.discount) / 100).toFixed(2);
+  const productPrice = (cartItem.price - (cartItem.price * cartItem.discount) / 100).toFixed(2)
   const handleUpdateQuantity = (value: number) => {
     cart[index].qty += value;
     setQuantity(quantity + value);
@@ -42,24 +39,17 @@ const CartItem = ({ cartItem, cart, setCart }: ICartItemProps) => {
         <h3>{cartItem.name}</h3>
       </td>
       <td className="product-price">
-        $
-        {(cartItem.price - (cartItem.price * cartItem.discount) / 100).toFixed(
-          2
-        )}
+        ${productPrice}
       </td>
       <td className="cart-quantitybutton">
-        <a className="quantity-down" onClick={() => handleUpdateQuantity(-1)}>
-          <i className="fa-solid fa-minus"></i>
-        </a>
+        <Button className="quantity-down" onClick={() => handleUpdateQuantity(-1)}  text={'-'}/>
         <input
           className="quantity-input"
           type="text"
           name="quantity"
           value={quantity}
         />
-        <a className="quantity-up" onClick={() => handleUpdateQuantity(1)}>
-          <i className="fa-solid fa-plus"></i>
-        </a>
+        <Button className="quantity-down" onClick={() => handleUpdateQuantity(1)}  text={'+'}/>
       </td>
       <td className="cart-totalprice">${totalCart}</td>
       <td>
