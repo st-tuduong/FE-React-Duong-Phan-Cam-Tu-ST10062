@@ -655,16 +655,6 @@ table {
   width: 120px;
 }
 
-.form-control {
-  border: 2px solid #3333;
-}
-
-.form-register {
-  margin-top: 100px;
-  width: 400px;
-  height: 700px;
-}
-
 .section-subscribe {
   background: url(../assets/images/subscribebg.svg);
   background-position: center;
@@ -910,4 +900,4 @@ table {
   }
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=style.css.map */

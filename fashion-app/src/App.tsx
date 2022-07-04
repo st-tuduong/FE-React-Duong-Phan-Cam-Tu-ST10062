@@ -8,6 +8,7 @@ import { ICart } from "./app/shared/interfaces/cart";
 import { getData } from "./app/shared/helpers/localStorage";
 import "./App.css";
 import "../src/stylesheet/styles.css";
+import Register from "./app/pages/register/Register";
 
 const App = () => {
   const [cart, setCart] = useState<ICart[]>([]);
@@ -23,6 +24,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home cart={cart} setCart={setCart} />} />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+        <Route path="/register" element={<Register />}/>
       </Routes>
       <Footer />
     </BrowserRouter>

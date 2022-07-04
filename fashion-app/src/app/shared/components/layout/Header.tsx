@@ -79,7 +79,7 @@ const Header = ({ cart }: any) => {
               </Link>
             </li>
             <li className="action-list">
-              <Link to="" className="action-link">
+              <Link to="/register" className="action-link">
                 <svg
                   width={24}
                   height={24}
