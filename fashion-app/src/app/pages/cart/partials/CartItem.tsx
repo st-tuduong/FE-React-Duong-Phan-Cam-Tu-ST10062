@@ -42,14 +42,14 @@ const CartItem = ({ cartItem, cart, setCart }: ICartItemProps) => {
         ${productPrice}
       </td>
       <td className="cart-quantitybutton">
-        <Button className="quantity-down" onClick={() => handleUpdateQuantity(-1)} text={<i className="fa-solid fa-minus"></i>}/>
+        <Button className="quantity-down" onClick={() => handleUpdateQuantity(-1)} text={<i className="fa-solid fa-minus"></i>} />
         <input
           className="quantity-input"
           type="text"
           name="quantity"
           value={quantity}
         />
-        <Button className="quantity-up" onClick={() => handleUpdateQuantity(1)} text={<i className="fa-solid fa-plus"></i>}/>
+        <Button className="quantity-up" onClick={() => handleUpdateQuantity(1)} text={<i className="fa-solid fa-plus"></i>} />
       </td>
       <td className="cart-totalprice">${totalCart}</td>
       <td>
