@@ -2,7 +2,13 @@ import CartList from "./CartList";
 import Button from "../../../shared/components/partials/Button";
 
 const SectionCart = ({ cart, setCart }: any) => {
-  const total = cart.reduce((total: number, item: any) => total + (item.price - (item.price * item.discount) / 100) * item.qty,0).toFixed(2)
+  const total = cart
+    .reduce(
+      (total: number, item: any) =>
+        total + (item.price - (item.price * item.discount) / 100) * item.qty,
+      0
+    )
+    .toFixed(2);
   return (
     <>
       <table className="table table-product col-9">
@@ -20,14 +26,8 @@ const SectionCart = ({ cart, setCart }: any) => {
       </table>
       <div className="sub-total col-3">
         <h4>Total</h4>
-        <span className="price-total">
-          ${total}
-        </span>
-        <Button
-          type="primary"
-          text="Checkout"
-          classButton="btn-checkout"
-        />
+        <span className="price-total">${total}</span>
+        <Button type="primary" text="Checkout" classButton="btn-checkout" />
       </div>
     </>
   );

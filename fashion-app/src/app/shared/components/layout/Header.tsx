@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { ICart } from "../../interfaces/cart";
 
-const Header = ({ cart }: any) => {
+const Header = ({ cart, user }: any) => {
+  const nameAccount = user.email;
   const numberQuantity = cart.reduce(
-    (total: number, item: ICart) => total + item.qty,0);
+    (total: number, item: ICart) => total + item.qty,
+    0
+  );
   return (
     <header>
       <div className="container">
@@ -61,6 +64,7 @@ const Header = ({ cart }: any) => {
                 </svg>
               </Link>
             </li>
+            <p>{nameAccount}</p>
             <li className="action-list">
               <Link to="/cart" className="action-link">
                 <svg

@@ -899,5 +899,11 @@ table {
     font-size: 8px;
   }
 }
+.signupFrm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
 /*# sourceMappingURL=style.css.map */
