@@ -4,6 +4,6 @@ export interface IButton {
   type?: string;
   text: string | ReactNode;
   classCol?: string;
-  className?: string;
+  classButton: string;
   onClick?: (e?: any) => void;
 }

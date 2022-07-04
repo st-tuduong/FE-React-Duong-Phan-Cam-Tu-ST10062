@@ -18,7 +18,7 @@ const Subscribe = () => {
                 className="form-input col-sm-6"
               />
               <Button
-                className="btn-subscribe"
+                classButton="btn-subscribe"
                 type="primary"
                 classCol="col-sm-6"
                 text="SUBSCRIBE"

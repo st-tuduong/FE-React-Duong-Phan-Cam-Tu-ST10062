@@ -1,4 +1,4 @@
-import Icon from "../../assets/icon";
+import Icon from "../../../assets/icon";
 
 const shopifys = [
   {

@@ -1,9 +1,9 @@
 import { IButton } from "../../interfaces/button";
 
-const Button: React.FC<IButton>  = ({ text, type, classCol, className, onClick }) => {
+const Button: React.FC<IButton>  = ({ type, classCol, classButton, onClick, text }) => {
   return (
     <button
-      className={`btn btn-${type} ${classCol}${className}`}
+      className={`btn btn-${type} ${classCol} ${classButton}`}
       onClick={onClick}>
       {text}
     </button>

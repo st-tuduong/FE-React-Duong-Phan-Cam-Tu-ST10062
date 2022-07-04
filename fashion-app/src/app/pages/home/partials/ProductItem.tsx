@@ -35,8 +35,7 @@ const ProductItem = ({ product, cart, setCart }: IProductItemProps) => {
           <Button
             text="ADD TO CART"
             type="primary"
-            className="btn-addcart"
-            classCol=""
+            classButton="btn-addcart"
             onClick={() => handleAddToCart(product.id)}
           />
         </div>

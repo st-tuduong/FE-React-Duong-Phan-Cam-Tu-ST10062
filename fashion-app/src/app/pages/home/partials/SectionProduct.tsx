@@ -1,12 +1,13 @@
 import ProductList from "./ProductList";
 import TitleProduct from "../../../shared/components/partials/SectionTitle";
 import products from "../../../shared/constant/product";
+import { ICart } from "../../../shared/interfaces/cart";
 
 interface ISectionProductProps {
-  cart: any;
-  setCart: any;
+  cart: ICart;
+  setCart: ICart[];
   title: string;
-  hasButton: boolean;
+  hasButton?: boolean;
 }
 const SectionProduct = ({
   cart,

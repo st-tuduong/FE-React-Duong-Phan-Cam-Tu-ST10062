@@ -16,7 +16,7 @@ const SectionCart = ({ cart, setCart }: any) => {
             <td />
           </tr>
         </thead>
-        <CartList cart={cart} setCart={setCart} carts={cart} />
+        <CartList setCart={setCart} cart={cart} />
       </table>
       <div className="sub-total col-3">
         <h4>Total</h4>
@@ -26,8 +26,7 @@ const SectionCart = ({ cart, setCart }: any) => {
         <Button
           type="primary"
           text="Checkout"
-          classCol=""
-          className="btn-checkout"
+          classButton="btn-checkout"
         />
       </div>
     </>

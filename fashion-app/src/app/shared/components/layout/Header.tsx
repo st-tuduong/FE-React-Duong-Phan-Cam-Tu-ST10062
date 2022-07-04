@@ -3,9 +3,7 @@ import { ICart } from "../../interfaces/cart";
 
 const Header = ({ cart }: any) => {
   const numberQuantity = cart.reduce(
-    (total: number, item: ICart) => total + item.qty,
-    0
-  );
+    (total: number, item: ICart) => total + item.qty,0);
   return (
     <header>
       <div className="container">
@@ -81,7 +79,7 @@ const Header = ({ cart }: any) => {
               </Link>
             </li>
             <li className="action-list">
-              <Link to="#" className="action-link">
+              <Link to="" className="action-link">
                 <svg
                   width={24}
                   height={24}
