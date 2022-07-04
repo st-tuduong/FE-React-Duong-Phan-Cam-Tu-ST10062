@@ -8,6 +8,7 @@
   text-align: center;
   text-transform: uppercase;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .btn-primary {
@@ -19,6 +20,11 @@
 
 .btn-secondary {
   background-color: map-get($colors, white);
+}
+
+.btn-remove {
+  border: 2px solid #000000;
+  background-color: lightblue;
 }
 
 @include responsive-below($mobile) {

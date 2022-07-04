@@ -1,14 +1,11 @@
 import { IHeading } from "../../interfaces/heading";
+import Link from "./Link";
 
 const TitleProduct = ({ title, hasButton }: IHeading) => {
   return (
-    <div className="section-title">
+    <div className={!hasButton ? "section-title title-center" : "section-title"}>
       <h3>{title}</h3>
-      {hasButton && (
-        <a href="#" className="btn btn-secondary">
-          Show More
-        </a>
-      )}
+      {hasButton && <Link type="secondary" text="Show More" />}
     </div>
   );
 };

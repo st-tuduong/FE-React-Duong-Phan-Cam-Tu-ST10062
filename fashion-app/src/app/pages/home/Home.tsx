@@ -1,21 +1,30 @@
+import { Banner, CollectionList, SectionProduct, SectionShopify, Subscribe } from "./partials";
 import campaigns from "../../shared/constant/campaign";
 import collections from "../../shared/constant/collection";
-import Banner from "./partials/SectionBanner";
-import CollectionList from "./partials/CollectionList";
-import SectionForYou from "./partials/SectionForYou";
-import SectionToDay from "./partials/SectionToDay";
-import Subscribe from "./partials/SectionSubscribe";
-import SectionShopify from "./partials/SectionShopify";
 
-const Home = () => {
+interface IHomeProps  {
+  cart: any;
+  setCart: any
+}
+
+const Home = ({ cart, setCart }: IHomeProps) => {
   return (
     <>
       <Banner campaigns={campaigns} />
       <main>
         <CollectionList collections={collections} />
-        <SectionForYou />
+        <SectionProduct
+          cart={cart}
+          setCart={setCart}
+          title="Selected just for you"
+          hasButton
+        />
         <SectionShopify />
-        <SectionToDay />
+        <SectionProduct
+          cart={cart}
+          setCart={setCart}
+          title="Products in today"
+        />
         <Subscribe />
       </main>
     </>

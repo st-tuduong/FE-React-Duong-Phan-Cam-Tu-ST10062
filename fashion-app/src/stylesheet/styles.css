@@ -143,7 +143,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  padding: 30px 0;
+  padding: 15px 0;
   z-index: 100;
 }
 
@@ -191,7 +191,7 @@ header {
   position: absolute;
   justify-content: center;
   display: flex;
-  top: 17px;
+  top: 30px;
   right: 15%;
   color: #fff;
   background-color: red;
@@ -328,7 +328,7 @@ header {
 }
 .section-banner {
   position: relative;
-  background: url(../asset/images/bg.png);
+  background: url(../assets/images/bg.png);
   background-size: cover;
   height: 800px;
   margin-bottom: 48px;
@@ -575,24 +575,29 @@ header {
   text-align: center;
 }
 
-.product-view {
-  margin: 48px 0;
-  color: #ffffff;
-}
-
-.table-product {
+table {
   width: 100%;
+  text-align: center;
+  font-size: 16px;
+  border-collapse: inherit;
   border-spacing: 0;
+  height: 300px;
 }
 
-.table-product > tbody > tr {
-  border-bottom: 1px solid #000000;
+.product-view {
+  margin: 7% 0;
+}
+
+.product-name h3 {
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .cart-menu {
-  background: #fbb03b;
+  background: lightblue;
   height: 50px;
   font-size: 16px;
+  font-weight: 800;
   text-align: center;
 }
 
@@ -615,13 +620,14 @@ header {
   text-align: center;
 }
 
-.cart-quantity {
+.cart-quantitybutton {
   width: 200px;
   text-align: center;
 }
 
-.quantity-input {
+.cart-quantityinput {
   width: 50px;
+  text-align: center;
 }
 
 .cart-totalprice {
@@ -645,8 +651,12 @@ header {
   bottom: 30px;
 }
 
+.cart-img {
+  width: 120px;
+}
+
 .section-subscribe {
-  background: url(../asset/images/subscribebg.svg);
+  background: url(../assets/images/subscribebg.svg);
   background-position: center;
   background-size: cover;
   height: 241px;
@@ -693,7 +703,7 @@ header {
 
 @media only screen and (max-width: 575px) {
   .section-banner {
-    background: url(../asset/images/bgmobile.png);
+    background: url(../assets/images/bgmobile.png);
     height: 740px;
   }
   .section-banner .banner-content {
@@ -739,6 +749,9 @@ header {
   }
   .section-title a {
     border: 0;
+  }
+  .section-title .title-center h3 {
+    text-align: center;
   }
   .product-item {
     height: 268px;
@@ -816,14 +829,16 @@ header {
 }
 
 .quantity-down,
-.quantity-up,
-.quantity-delete {
+.quantity-up {
+  background-color: lightblue;
+  border-radius: 6px;
   padding: 10px;
   color: #000000;
-  font-weight: 600;
 }
 
 .quantity-input {
+  width: 35px;
+  font-size: 15px;
   text-align: center;
 }
 
@@ -837,6 +852,7 @@ header {
   text-align: center;
   text-transform: uppercase;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .btn-primary {
@@ -848,6 +864,11 @@ header {
 
 .btn-secondary {
   background-color: #ffffff;
+}
+
+.btn-remove {
+  border: 2px solid #000000;
+  background-color: lightblue;
 }
 
 @media only screen and (max-width: 575px) {

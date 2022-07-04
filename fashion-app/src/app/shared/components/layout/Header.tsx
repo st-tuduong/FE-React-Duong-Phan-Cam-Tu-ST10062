@@ -1,11 +1,16 @@
-function Header() {
+import { Link } from "react-router-dom";
+import { ICart } from "../../interfaces/cart";
+
+const Header = ({ cart }: any) => {
+  const numberQuantity = cart.reduce(
+    (total: number, item: ICart) => total + item.qty,0);
   return (
     <header>
       <div className="container">
         <nav className="nav-menu">
           <div className="nav-brand">
             <h1>
-              <a href="index.html">
+              <Link to="/">
                 <svg
                   width={42}
                   height={35}
@@ -19,29 +24,29 @@ function Header() {
                   />
                 </svg>
                 <span className="logo-title">E-Shop</span>
-              </a>
+              </Link>
             </h1>
           </div>
           <ul className="nav-list">
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <Link to="#" className="nav-link">
                 Men
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <Link to="#" className="nav-link">
                 Women
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <Link to="#" className="nav-link">
                 Kids
-              </a>
+              </Link>
             </li>
           </ul>
           <ul className="nav-action">
             <li className="action-list">
-              <a href="#" className="action-link search">
+              <Link to="#" className="action-link search">
                 <svg
                   width={24}
                   height={24}
@@ -54,10 +59,10 @@ function Header() {
                     fill="white"
                   />
                 </svg>
-              </a>
+              </Link>
             </li>
             <li className="action-list">
-              <a href="cart.html" className="action-link">
+              <Link to="/cart" className="action-link">
                 <svg
                   width={24}
                   height={21}
@@ -70,11 +75,11 @@ function Header() {
                     fill="white"
                   />
                 </svg>
-                <span className="qty">0</span>
-              </a>
+                <span className="qty">{numberQuantity}</span>
+              </Link>
             </li>
             <li className="action-list">
-              <a href="#" className="action-link">
+              <Link to="" className="action-link">
                 <svg
                   width={24}
                   height={24}
@@ -87,13 +92,13 @@ function Header() {
                     fill="white"
                   />
                 </svg>
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
       </div>
     </header>
   );
-}
+};
 
 export default Header;

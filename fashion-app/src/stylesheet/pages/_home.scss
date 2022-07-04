@@ -1,6 +1,6 @@
 .section-banner {
   position: relative;
-  background: url(../asset/images/bg.png);
+  background: url(../assets/images/bg.png);
   background-size: cover;
   height: 800px;
   margin-bottom: 48px;
@@ -262,24 +262,28 @@
   }
 }
 
-.product-view {
-  margin: 48px 0;
-  color: map-get($colors, white);
-}
-
-.table-product {
+table {
   width: 100%;
+  text-align: center;
+  font-size: 16px;
+  border-collapse: inherit;
   border-spacing: 0;
+  height: 300px;
+}
+.product-view {
+  margin: 7% 0;
 }
 
-.table-product > tbody > tr {
-  border-bottom: 1px solid #000000;
+.product-name h3 {
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .cart-menu {
-  background: map-get($colors, primary-color);
+  background: lightblue;
   height: 50px;
   font-size: 16px;
+  font-weight: 800;
   text-align: center;
 }
 
@@ -301,13 +305,14 @@
   text-align: center;
 }
 
-.cart-quantity {
+.cart-quantitybutton {
   width: 200px;
   text-align: center;
 }
 
-.quantity-input {
+.cart-quantityinput {
   width: 50px;
+  text-align: center;
 }
 
 .cart-totalprice {
@@ -331,8 +336,12 @@
   bottom: 30px;
 }
 
+.cart-img {
+  width: 120px;
+}
+
 .section-subscribe {
-  background: url(../asset/images/subscribebg.svg);
+  background: url(../assets/images/subscribebg.svg);
   background-position: center;
   background-size: cover;
   height: 241px;
@@ -384,7 +393,7 @@
 @include responsive-below($mobile) {
   //Banner
   .section-banner {
-    background: url(../asset/images/bgmobile.png);
+    background: url(../assets/images/bgmobile.png);
     height: 740px;
 
     .banner-content {
@@ -447,6 +456,10 @@
     a {
       border: 0;
     }
+  }
+
+  .section-title .title-center h3{
+    text-align: center;
   }
 
   .product-item {
@@ -544,13 +557,15 @@
 }
 
 .quantity-down,
-.quantity-up,
-.quantity-delete {
+.quantity-up {
+  background-color: lightblue;
+  border-radius: 6px;
   padding: 10px;
   color: #000000;
-  font-weight: 600;
 }
 
 .quantity-input {
+  width: 35px;
+  font-size: 15px;
   text-align: center;
 }

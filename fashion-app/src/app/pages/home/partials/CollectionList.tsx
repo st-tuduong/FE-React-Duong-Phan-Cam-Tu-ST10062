@@ -1,5 +1,5 @@
-import { ICollection } from "../../../shared/interfaces/collection";
 import CollectionItem from "./CollectionItem";
+import { ICollection } from "../../../shared/interfaces/collection";
 
 interface ICollectionListProp {
   collections: ICollection[];

@@ -1,17 +1,32 @@
-import './App.css';
-import Home from './app/pages/home/Home';
-import '../src/app/stylesheet/styles.css'
-import Header from './app/shared/components/layout/Header';
-import Footer from './app/shared/components/layout/Footer';
+import React from "react";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./app/pages/home/Home";
+import Cart from "./app/pages/cart/Cart";
+import { Header, Footer } from "./app/shared/components/layout";
+import { ICart } from "./app/shared/interfaces/cart";
+import { getData } from "./app/shared/helpers/localStorage";
+import "./App.css";
+import "../src/stylesheet/styles.css";
 
-function App() {
+const App = () => {
+  const [cart, setCart] = useState<ICart[]>([]);
+
+  useEffect(() => {
+    const cartItem: ICart[] = getData("cart");
+    setCart(cartItem);
+  }, []);
+
   return (
-    <div className="App">
-      <Header />
-      <Home />
+    <BrowserRouter>
+      <Header cart={cart} />
+      <Routes>
+        <Route path="/" element={<Home cart={cart} setCart={setCart} />} />
+        <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+      </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
