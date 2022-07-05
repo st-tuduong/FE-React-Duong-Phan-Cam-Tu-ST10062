@@ -899,7 +899,7 @@ table {
     font-size: 8px;
   }
 }
-.signupFrm {
+.form-signup {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -921,7 +921,7 @@ table {
   margin-bottom: 50px;
 }
 
-.inputContainer {
+.form-content {
   position: relative;
   height: 45px;
   width: 90%;
@@ -959,7 +959,7 @@ table {
   z-index: 0;
 }
 
-.submitBtn {
+.btn-submit {
   display: block;
   margin-left: auto;
   padding: 15px 30px;
@@ -972,7 +972,7 @@ table {
   margin-top: 30px;
 }
 
-.submitBtn:hover {
+.btn-submit:hover {
   background-color: #fbb03b;
   transform: translateY(-2px);
 }

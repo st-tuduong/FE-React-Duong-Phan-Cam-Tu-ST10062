@@ -1,25 +1,32 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Button from "../../shared/components/partials/Button";
 import { storeData } from "../../shared/helpers/localStorage";
+import { IUser } from "../../shared/interfaces/user";
 
-const Register = () => {
+interface IRegisterProps {
+  setUser: (user: IUser) => void
+}
+
+const Register = ({setUser} : IRegisterProps) => {
   const navigateLink = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm({});
+  } = useForm<IUser>({});
   const password = watch("password");
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: IUser) => {
+    setUser(data)
     storeData("account", data);
     navigateLink("/");
   };
   return (
-    <div className="signupFrm">
+    <div className="form-signup">
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <h1 className="title">Sign up</h1>
-        <div className="inputContainer">
+        <div className="form-content">
           <input
             type="text"
             className={errors.email ? "error-input" : "input"}
@@ -31,7 +38,7 @@ const Register = () => {
         {errors.email && (
           <p className="text-danger">Please check the Email!!</p>
         )}
-        <div className="inputContainer">
+        <div className="form-content">
           <input
             type="password"
             className={errors.password ? "error-input" : "input"}
@@ -43,7 +50,7 @@ const Register = () => {
         {errors.password && (
           <p className="text-danger">Please check the Password</p>
         )}
-        <div className="inputContainer">
+        <div className="form-content">
           <input
             type="password"
             className={errors.password ? "error-input" : "input"}
@@ -59,7 +66,7 @@ const Register = () => {
         {errors.confirmpassword && (
           <p className="text-danger">Please check the Password</p>
         )}
-        <input type="submit" className="submitBtn" defaultValue="Sign up" />
+        <Button type="primary" classButton="btn-submit" text="Sign up" />
       </form>
     </div>
   );

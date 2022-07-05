@@ -12,7 +12,7 @@ import "../src/stylesheet/styles.css";
 
 const App = () => {
   const [cart, setCart] = useState<ICart[]>([]);
-  const [user, setUser] = useState(getData("account"));
+  const [user, setUser] = useState(getData("account") || []);
 
   useEffect(() => {
     const cartItem: ICart[] = getData("cart");
@@ -24,13 +24,17 @@ const App = () => {
     if (account) setUser(account);
   }, []);
 
+  useEffect(() => {
+    setUser(user);
+  }, [user]);
+
   return (
     <BrowserRouter>
       <Header cart={cart} user={user} />
       <Routes>
         <Route path="/" element={<Home cart={cart} setCart={setCart} />} />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register setUser={setUser} />} />
       </Routes>
       <Footer />
     </BrowserRouter>
