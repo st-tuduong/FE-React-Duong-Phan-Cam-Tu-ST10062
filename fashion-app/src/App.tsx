@@ -17,16 +17,10 @@ const App = () => {
   useEffect(() => {
     const cartItem: ICart[] = getData("cart");
     if (cartItem) setCart(cartItem);
-  }, []);
 
-  useEffect(() => {
     const account = getData("account");
     if (account) setUser(account);
   }, []);
-
-  useEffect(() => {
-    setUser(user);
-  }, [user]);
 
   return (
     <BrowserRouter>

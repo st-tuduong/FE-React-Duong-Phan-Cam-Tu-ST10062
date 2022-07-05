@@ -23,13 +23,6 @@ const CartItem = ({ cartItem, cart, setCart }: ICartItemProps) => {
     (cartItem.price * cartItem.discount) / 100
   ).toFixed(2);
 
-  // const handleChange = (e: any) => {
-  //   const newValue = e.target.value;
-  //   setQuantity(newValue);
-  //   setCart([...cart]);
-  //   storeData('cart', [...cart])
-  // };
-
   const handleUpdateQuantity = (value: number) => {
     cart[index].qty += value;
     setQuantity(quantity + value);
@@ -37,13 +30,13 @@ const CartItem = ({ cartItem, cart, setCart }: ICartItemProps) => {
       cart.splice(index, 1);
     }
     setCart([...cart]);
-    storeData("cart", [...cart]);
+    storeData('cart', [...cart]);
   };
 
   const handleRemoveItem = () => {
     cart.splice(index, 1);
     setCart([...cart]);
-    storeData("cart", [...cart]);
+    storeData('cart', [...cart]);
   };
 
   return (
@@ -66,7 +59,6 @@ const CartItem = ({ cartItem, cart, setCart }: ICartItemProps) => {
           type="text"
           name="quantity"
           value={quantity}
-          // onChange={handleChange}
         />
         <Button
           classButton="quantity-up"

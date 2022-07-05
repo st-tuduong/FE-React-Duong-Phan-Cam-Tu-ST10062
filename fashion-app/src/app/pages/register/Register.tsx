@@ -16,11 +16,11 @@ const Register = ({setUser} : IRegisterProps) => {
     formState: { errors },
     watch,
   } = useForm<IUser>({});
-  const password = watch("password");
+  const password = watch('passWord');
   const onSubmit = (data: IUser) => {
     setUser(data)
-    storeData("account", data);
-    navigateLink("/");
+    storeData('account', data);
+    navigateLink('/');
   };
   return (
     <div className="form-signup">
@@ -41,21 +41,21 @@ const Register = ({setUser} : IRegisterProps) => {
         <div className="form-content">
           <input
             type="password"
-            className={errors.password ? "error-input" : "input"}
+            className={errors.passWord ? "error-input" : "input"}
             placeholder="password"
-            {...register("password", { required: true, minLength: 8 })}
+            {...register("passWord", { required: true, minLength: 8 })}
           />
           <label className="label">Password</label>
         </div>
-        {errors.password && (
+        {errors.passWord && (
           <p className="text-danger">Please check the Password</p>
         )}
         <div className="form-content">
           <input
             type="password"
-            className={errors.password ? "error-input" : "input"}
-            placeholder="confirmpassword"
-            {...register("confirmpassword", {
+            className={errors.passWord ? "error-input" : "input"}
+            placeholder="confirmPassword"
+            {...register("confirmPassword", {
               required: true,
               validate: (value) =>
                 value === password || "The password do not match",
@@ -63,7 +63,7 @@ const Register = ({setUser} : IRegisterProps) => {
           />
           <label className="label">Confirm Password</label>
         </div>
-        {errors.confirmpassword && (
+        {errors.confirmPassword && (
           <p className="text-danger">Please check the Password</p>
         )}
         <Button type="primary" classButton="btn-submit" text="Sign up" />
