@@ -1,5 +1,5 @@
-import CartItem from "./CartItem";
-import { ICart } from "../../../shared/interfaces/cart";
+import CartItem from './CartItem';
+import { ICart } from '../../../shared/interfaces/cart';
 
 interface ICartListProps {
   carts: any;
@@ -12,7 +12,7 @@ const CartList = ({carts}: ICartListProps) => {
         return (
           <CartItem
             key={cartItem.id}
-            cartItem={cartItem}
+            products={cartItem}
           />
         );
       })}

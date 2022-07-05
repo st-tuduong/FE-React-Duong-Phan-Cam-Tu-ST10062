@@ -1,30 +1,28 @@
 import { Banner, CollectionList, SectionProduct, SectionShopify, Subscribe } from "./partials";
 import campaigns from "../../shared/constant/campaign";
 import collections from "../../shared/constant/collection";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { IProduct } from "../../shared/interfaces/product";
+import { getData } from "../../shared/helpers/localStorage";
 
-interface IHomeProps  {
-  cart: any;
-  setCart: any
-}
-
-const Home = ({ cart, setCart }: IHomeProps) => {
-  const data = useSelector((state: any) => state.products);  
+const Home = () => {
+  const [products, setProduct] = useState<IProduct[]>([]);
+  useEffect(() => {
+    setProduct(getData('products' , products))
+  }, [])
   return (
     <>
       <Banner campaigns={campaigns} />
       <main>
         <CollectionList collections={collections} />
         <SectionProduct
-          cart={cart}
-          setCart={setCart}
+          products={products}
           title="Selected just for you"
           hasButton
         />
         <SectionShopify />
         <SectionProduct
-          cart={cart}
-          setCart={setCart}
+          products={products}
           title="Products in today"
         />
         <Subscribe />

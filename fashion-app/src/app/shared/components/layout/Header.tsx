@@ -1,6 +1,6 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { ICart } from "../../interfaces/cart";
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { ICart } from '../../interfaces/cart';
 
 const Header = () => {
   const {carts}  = useSelector((state: any) => state.products);

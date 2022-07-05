@@ -1,5 +1,5 @@
-import CartList from "./CartList";
-import Button from "../../../shared/components/partials/Button";
+import CartList from './CartList';
+import Button from '../../../shared/components/partials/Button';
 
 const SectionCart = ({ carts}: any) => {
   const total = carts.reduce((total: number, item: any) => total + (item.price - (item.price * item.discount) / 100) * item.qty,0).toFixed(2)

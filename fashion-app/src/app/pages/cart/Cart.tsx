@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import SectionCart from "./partials/SectionCart";
+import { useSelector } from 'react-redux';
+import SectionCart from './partials/SectionCart';
 
 const Cart = () => {
   const {carts} = useSelector((state: any) => state.products);

@@ -1,69 +1,56 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Button from "../../../shared/components/partials/Button";
-import { storeData } from "../../../shared/helpers/localStorage";
-import { ICart } from "../../../shared/interfaces/cart";
-import { addCart, decreaseCart } from "../../home/home.actions";
+import { useDispatch} from 'react-redux';
+import Button from '../../../shared/components/partials/Button';
+import { ICart } from '../../../shared/interfaces/cart';
+import { addCart, decreaseCart, removeCart } from '../../home/home.actions';
 
 interface ICartItemProps {
-  cartItem: ICart;
+  products: ICart;
 }
 
-const CartItem = ({ cartItem}: ICartItemProps) => {
+const CartItem = ({ products }: ICartItemProps) => {
   const dispatch = useDispatch();
-  const {carts}  = useSelector((state: any) => state.products);
-  
 
   const totalCart = (
-    (cartItem.price - (cartItem.price * cartItem.discount) / 100) *
-    cartItem.qty
+    (products.price - (products.price * products.discount) / 100) *
+    products.qty
   ).toFixed(2);
 
   const productPrice = (
-    cartItem.price -
-    (cartItem.price * cartItem.discount) / 100
+    products.price -
+    (products.price * products.discount) / 100
   ).toFixed(2);
 
-  // const handleChange = (e: any) => {
-  //   const newValue = e.target.value;
-  //   setQuantity(newValue);
-  //   setCart([...cart]);
-  //   storeData('cart', [...cart])
-  // };
-  
   const handleIncreaseQuantity = () => {
-    dispatch(addCart({   
-      product: cartItem
-    }))}
+    dispatch(
+      addCart({
+        products,
+      })
+    );
+  };
 
-    const handleDecreaseQuantity = () => {
-      dispatch(decreaseCart({   
-        product: cartItem
-      }))}
-  const handleUpdateQuantity = (value: number) => {
-
-    // carts[index].qty += value;
-    // setQuantity(quantity + value);
-    // if (cartItem.qty === 0) {
-    //   carts.splice(index, 1);
-    // }
-    // setCart([...cart]);
-    // storeData("cart", [...cart]);
-  }
+  const handleDecreaseQuantity = () => {
+    dispatch(
+      decreaseCart({
+        products,
+      })
+    );
+  };
 
   const handleRemoveItem = () => {
-    // cart.splice(index, 1);
-    // setCart([...cart]);
-    // storeData("cart", [...cart]);
+    dispatch(
+      removeCart({
+        products,
+      })
+    );
   };
 
   return (
     <tr className="product-item">
       <td className="product-image cart-img">
-        <img src={cartItem.img} alt={cartItem.name} />
+        <img src={products.img} alt={products.name} />
       </td>
       <td className="product-name">
-        <h3>{cartItem.name}</h3>
+        <h3>{products.name}</h3>
       </td>
       <td className="product-price">${productPrice}</td>
       <td className="cart-quantitybutton">
@@ -76,8 +63,7 @@ const CartItem = ({ cartItem}: ICartItemProps) => {
           className="quantity-input"
           type="text"
           name="quantity"
-          value={cartItem.qty}
-          // onChange={handleChange}
+          value={products.qty}
         />
         <Button
           classButton="quantity-up"
