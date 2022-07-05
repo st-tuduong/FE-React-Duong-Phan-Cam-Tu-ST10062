@@ -16,14 +16,14 @@ const Home = ({ cart, setCart }: IHomeProps) => {
         <SectionProduct
           cart={cart}
           setCart={setCart}
-          title="Selected just for you"
+          title='Selected just for you'
           hasButton
         />
         <SectionShopify />
         <SectionProduct
           cart={cart}
           setCart={setCart}
-          title="Products in today"
+          title='Products in today'
         />
         <Subscribe />
       </main>
