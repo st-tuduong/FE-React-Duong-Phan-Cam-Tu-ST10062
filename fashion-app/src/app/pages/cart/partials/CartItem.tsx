@@ -1,56 +1,50 @@
 import { useDispatch} from 'react-redux';
 import Button from '../../../shared/components/partials/Button';
 import { ICart } from '../../../shared/interfaces/cart';
-import { addCart, decreaseCart, removeCart } from '../../home/home.actions';
+import { addCart, decreaseCart, removeCart } from '../../cart/cart.actions';
 
 interface ICartItemProps {
-  products: ICart;
+  cart: ICart;
 }
 
-const CartItem = ({ products }: ICartItemProps) => {
+const CartItem = ({ cart }: ICartItemProps) => {
   const dispatch = useDispatch();
 
   const totalCart = (
-    (products.price - (products.price * products.discount) / 100) *
-    products.qty
+    (cart.price - (cart.price * cart.discount) / 100) *
+    cart.qty
   ).toFixed(2);
 
   const productPrice = (
-    products.price -
-    (products.price * products.discount) / 100
+    cart.price -
+    (cart.price * cart.discount) / 100
   ).toFixed(2);
 
   const handleIncreaseQuantity = () => {
     dispatch(
-      addCart({
-        products,
-      })
+      addCart(cart)
     );
   };
 
   const handleDecreaseQuantity = () => {
     dispatch(
-      decreaseCart({
-        products,
-      })
+      decreaseCart(cart)
     );
   };
 
   const handleRemoveItem = () => {
     dispatch(
-      removeCart({
-        products,
-      })
+      removeCart(cart)
     );
   };
 
   return (
     <tr className="product-item">
       <td className="product-image cart-img">
-        <img src={products.img} alt={products.name} />
+        <img src={cart.image} alt={cart.name} />
       </td>
       <td className="product-name">
-        <h3>{products.name}</h3>
+        <h3>{cart.name}</h3>
       </td>
       <td className="product-price">${productPrice}</td>
       <td className="cart-quantitybutton">
@@ -63,7 +57,7 @@ const CartItem = ({ products }: ICartItemProps) => {
           className="quantity-input"
           type="text"
           name="quantity"
-          value={products.qty}
+          value={cart.qty}
         />
         <Button
           classButton="quantity-up"

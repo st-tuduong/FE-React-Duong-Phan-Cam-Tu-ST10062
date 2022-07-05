@@ -8,11 +8,10 @@ interface ICartListProps {
 const CartList = ({carts}: ICartListProps) => {
   return (
     <tbody className="product-list">
-      {carts.map((cartItem: ICart) => {
+      {carts.map((cart: ICart) => {
         return (
           <CartItem
-            key={cartItem.id}
-            products={cartItem}
+            cart={cart}
           />
         );
       })}

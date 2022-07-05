@@ -1,5 +1,5 @@
 import * as TYPES from "../../shared/constant/types";
-export const addCart = (cart: any) => {
+export const addCart = (cart: any) => {  
   return {
     type: TYPES.ADD_CART,
     payload: cart,

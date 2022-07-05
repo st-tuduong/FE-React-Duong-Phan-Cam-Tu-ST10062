@@ -5,12 +5,12 @@ const initialState = {
   carts: getData('cart', []),
 };
 
-const productReducer = (state = initialState, action: any) => {
+const cartReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case TYPES.ADD_CART: {
       const newCart = [...state.carts];
       const productItem: any = newCart.find(
-        (item: any) => item.id === action.payload.products.id
+        (item: any) => item.id === action.payload.id
       );
       if (productItem) {
         productItem.qty += 1;
@@ -20,9 +20,10 @@ const productReducer = (state = initialState, action: any) => {
           carts: newCart,
         };
       } else {
+        storeData("cart", newCart);
         return {
           ...state,
-          carts: [...state.carts, { ...action.payload.products, qty: 1 }],
+          carts: [...state.carts, { ...action.payload, qty: 1 }],
         };
       }
     }
@@ -30,7 +31,7 @@ const productReducer = (state = initialState, action: any) => {
     case TYPES.DECREASE_QUANTITY: {
       const newCart = [...state.carts];
       const productItem: any = newCart.find(
-        (item: any) => item.id === action.payload.products.id
+        (item: any) => item.id === action.payload.id
       );
       productItem.qty -= 1;
       if (productItem.qty === 0) {
@@ -46,7 +47,7 @@ const productReducer = (state = initialState, action: any) => {
     case TYPES.REMOVE_ITEM: {
       const newCart = [...state.carts];
       const productItem: any = newCart.find(
-        (item: any) => item.id === action.payload.products.id
+        (item: any) => item.id === action.payload.id
       );
       newCart.splice(productItem, 1);
       storeData("cart", newCart);
@@ -61,4 +62,4 @@ const productReducer = (state = initialState, action: any) => {
   }
 };
 
-export default productReducer;
+export default cartReducer;

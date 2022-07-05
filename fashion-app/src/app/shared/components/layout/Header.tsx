@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ICart } from '../../interfaces/cart';
 
 const Header = () => {
-  const {carts}  = useSelector((state: any) => state.products);
+  const {carts}  = useSelector((state: any) => state.cart);
   const numberQuantity = carts?.reduce(
     (total: number, item: ICart) => total + item.qty,0);
   return (

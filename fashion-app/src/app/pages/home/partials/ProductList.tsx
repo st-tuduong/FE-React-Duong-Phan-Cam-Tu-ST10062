@@ -9,7 +9,7 @@ const ProductList = ({ products}: IProductListProps) => {
   return (
     <ul className="product-list row">
       {products.map((products: IProduct) => {
-        return <ProductItem products={products} />;
+        return <ProductItem product={products} />;
       })}
     </ul>
   );

@@ -491,6 +491,7 @@ header {
 
 .product-item {
   position: relative;
+  margin-bottom: 20px;
 }
 .product-item img {
   display: block;
@@ -639,6 +640,7 @@ table {
   position: relative;
   display: flex;
   justify-content: center;
+  height: 370px;
 }
 
 .product-img:hover .product-overlay {
