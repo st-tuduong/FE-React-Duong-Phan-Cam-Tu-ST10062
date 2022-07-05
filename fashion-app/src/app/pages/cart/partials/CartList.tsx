@@ -2,20 +2,17 @@ import CartItem from "./CartItem";
 import { ICart } from "../../../shared/interfaces/cart";
 
 interface ICartListProps {
-  cart: any;
-  setCart: any;
+  carts: any;
 }
 
-const CartList = ({ cart, setCart }: ICartListProps) => {
+const CartList = ({carts}: ICartListProps) => {
   return (
     <tbody className="product-list">
-      {cart.map((cartItem: ICart) => {
+      {carts.map((cartItem: ICart) => {
         return (
           <CartItem
             key={cartItem.id}
             cartItem={cartItem}
-            setCart={setCart}
-            cart={cart}
           />
         );
       })}

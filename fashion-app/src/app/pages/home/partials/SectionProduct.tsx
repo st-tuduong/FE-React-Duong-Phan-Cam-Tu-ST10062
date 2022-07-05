@@ -2,6 +2,8 @@ import ProductList from "./ProductList";
 import TitleProduct from "../../../shared/components/partials/SectionTitle";
 import products from "../../../shared/constant/product";
 import { ICart } from "../../../shared/interfaces/cart";
+import { useDispatch } from "react-redux";
+import { addCart } from "../home.actions";
 
 interface ISectionProductProps {
   cart: ICart;

@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ICart } from "../../interfaces/cart";
 
-const Header = ({ cart }: any) => {
-  const numberQuantity = cart.reduce(
+const Header = () => {
+  const {carts}  = useSelector((state: any) => state.products);
+  const numberQuantity = carts?.reduce(
     (total: number, item: ICart) => total + item.qty,0);
   return (
     <header>

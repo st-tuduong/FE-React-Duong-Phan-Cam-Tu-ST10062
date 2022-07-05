@@ -1,11 +1,14 @@
+import { useSelector } from "react-redux";
 import SectionCart from "./partials/SectionCart";
 
-const Cart = ({ cart, setCart }: any) => {
+const Cart = () => {
+  const {carts} = useSelector((state: any) => state.products);
+    
   return (
     <section className="product-view">
       <div className="container">
         <div className="row">
-          <SectionCart cart={cart} setCart={setCart} />
+          <SectionCart carts={carts}/>
         </div>
       </div>
     </section>

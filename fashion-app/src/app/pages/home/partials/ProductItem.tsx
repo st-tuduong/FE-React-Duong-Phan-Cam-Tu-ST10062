@@ -1,7 +1,9 @@
+import { useDispatch } from "react-redux";
 import Button from "../../../shared/components/partials/Button";
 import { storeData } from "../../../shared/helpers/localStorage";
 import { ICart } from "../../../shared/interfaces/cart";
 import { IProduct } from "../../../shared/interfaces/product";
+import { addCart } from "../home.actions";
 
 interface IProductItemProps {
   product: IProduct;
@@ -10,6 +12,13 @@ interface IProductItemProps {
 }
 
 const ProductItem = ({ product, cart, setCart }: IProductItemProps) => {
+  const dispatch = useDispatch();
+  const handleAddCart = () => {
+    dispatch(addCart({   
+      product
+    }))
+  }
+
   const handleAddToCart = (id: number) => {
     const productItem: ICart = cart.find((item: ICart) => item.id === id);
     if (productItem) {
@@ -36,7 +45,8 @@ const ProductItem = ({ product, cart, setCart }: IProductItemProps) => {
             text="ADD TO CART"
             type="primary"
             classButton="btn-addcart"
-            onClick={() => handleAddToCart(product.id)}
+            // onClick={() => handleAddToCart(product.id)}
+            onClick={handleAddCart}
           />
         </div>
       </div>
