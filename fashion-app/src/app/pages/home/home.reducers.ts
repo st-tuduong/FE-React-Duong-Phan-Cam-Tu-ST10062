@@ -31,6 +31,15 @@ export const homeReducer = (state = initialState, action: any) => {
       }
     }
 
+    case TYPES.GET_PRODUCTS_FAILED: {
+      return {
+        ...state,
+        data: action.payload,
+        error: action.payload.error,
+        isLoading: false
+      }
+    }
+
     default:
       return state;
   }
