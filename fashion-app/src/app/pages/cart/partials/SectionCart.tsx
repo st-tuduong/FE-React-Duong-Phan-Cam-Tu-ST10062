@@ -1,8 +1,10 @@
+import { useSelector } from 'react-redux';
 import CartList from './CartList';
 import Button from '../../../shared/components/partials/Button';
 
-const SectionCart = ({ carts}: any) => {
-  const total = carts.reduce((total: number, item: any) => total + (item.price - (item.price * item.discount) / 100) * item.qty,0).toFixed(2)
+const SectionCart = () => {
+  const {cart} = useSelector((state: any) => state.cart);    
+  const total = cart.reduce((total: number, item: any) => total + (item.price - (item.price * item.discount) / 100) * item.qty,0).toFixed(2)
   return (
     <>
       <table className="table table-product col-9">
@@ -16,7 +18,7 @@ const SectionCart = ({ carts}: any) => {
             <td />
           </tr>
         </thead>
-        <CartList carts={carts} />
+        <CartList cart={cart} />
       </table>
       <div className="sub-total col-3">
         <h4>Total</h4>

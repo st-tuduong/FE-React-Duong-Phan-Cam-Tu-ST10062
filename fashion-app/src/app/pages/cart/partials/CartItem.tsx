@@ -7,7 +7,7 @@ interface ICartItemProps {
   cart: ICart;
 }
 
-const CartItem = ({ cart }: ICartItemProps) => {
+const CartItem = ({ cart }: ICartItemProps) => {  
   const dispatch = useDispatch();
 
   const totalCart = (
