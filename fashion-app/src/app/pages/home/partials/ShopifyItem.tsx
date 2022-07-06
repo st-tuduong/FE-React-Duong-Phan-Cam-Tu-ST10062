@@ -1,4 +1,4 @@
-import { IShopify } from "../../../shared/interfaces/shopify";
+import { IShopify } from '../../../shared/interfaces/shopify';
 
 const ShopifyItem = ({ img, alt, title, text }: IShopify) => {
   return (

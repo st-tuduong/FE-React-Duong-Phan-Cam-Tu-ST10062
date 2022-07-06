@@ -1,7 +1,7 @@
-import { useDispatch } from "react-redux";
-import Button from "../../../shared/components/partials/Button";
-import { IProduct } from "../../../shared/interfaces/product";
-import { addCart } from "../../cart/cart.actions";
+import { useDispatch } from 'react-redux';
+import Button from '../../../shared/components/partials/Button';
+import { IProduct } from '../../../shared/interfaces/product';
+import { addCart } from '../../cart/cart.actions';
 
 interface IProductItemProps {
   product: IProduct;

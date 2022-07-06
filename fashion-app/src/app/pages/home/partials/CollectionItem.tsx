@@ -1,5 +1,5 @@
-import Link from "../../../shared/components/partials/Link";
-import { ICollection } from "../../../shared/interfaces/collection";
+import Link from '../../../shared/components/partials/Link';
+import { ICollection } from '../../../shared/interfaces/collection';
 
 const CollectionItem = ({
   classCol,

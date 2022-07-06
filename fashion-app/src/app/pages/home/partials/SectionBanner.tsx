@@ -1,6 +1,6 @@
-import CampaignItem from "./CampaignItem";
-import { ICampaign } from "../../../shared/interfaces/campaign";
-import Icon from "../../../../assets/icon";
+import CampaignItem from './CampaignItem';
+import { ICampaign } from '../../../shared/interfaces/campaign';
+import Icon from '../../../../assets/icon';
 
 interface ICampaignListProps {
   campaigns: ICampaign[];

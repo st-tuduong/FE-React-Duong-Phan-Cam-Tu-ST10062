@@ -1,5 +1,5 @@
-import ShopifyItem from "./ShopifyItem";
-import { IShopify } from "../../../shared/interfaces/shopify";
+import ShopifyItem from './ShopifyItem';
+import { IShopify } from '../../../shared/interfaces/shopify';
 
 interface IShopifyListProps {
   shopifys: IShopify[];

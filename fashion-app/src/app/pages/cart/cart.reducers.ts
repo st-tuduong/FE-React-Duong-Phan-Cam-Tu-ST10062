@@ -14,13 +14,13 @@ const cartReducer = (state = initialState, action: any) => {
       );
       if (productItem) {
         productItem.qty += 1;
-        storeData("cart", newCart);
+        storeData('cart', newCart);
         return {
           ...state,
           carts: newCart,
         };
       } else {
-        storeData("cart", newCart);
+        storeData('cart', newCart);
         return {
           ...state,
           carts: [...state.carts, { ...action.payload, qty: 1 }],
@@ -30,14 +30,14 @@ const cartReducer = (state = initialState, action: any) => {
 
     case TYPES.DECREASE_QUANTITY: {
       const newCart = [...state.carts];
-      const productItem: any = newCart.find(
+      const productItem: any = newCart.findIndex(
         (item: any) => item.id === action.payload.id
       );
-      productItem.qty -= 1;
-      if (productItem.qty === 0) {
+      newCart[productItem].qty -= 1;
+      if(newCart[productItem].qty === 0) {
         newCart.splice(productItem, 1);
       }
-      storeData("cart", newCart);
+      storeData('cart', newCart);
       return {
         ...state,
         carts: newCart,
@@ -46,11 +46,11 @@ const cartReducer = (state = initialState, action: any) => {
 
     case TYPES.REMOVE_ITEM: {
       const newCart = [...state.carts];
-      const productItem: any = newCart.find(
+      const productItem: any = newCart.findIndex(
         (item: any) => item.id === action.payload.id
       );
       newCart.splice(productItem, 1);
-      storeData("cart", newCart);
+      storeData('cart', newCart);
       return {
         ...state,
         carts: newCart,

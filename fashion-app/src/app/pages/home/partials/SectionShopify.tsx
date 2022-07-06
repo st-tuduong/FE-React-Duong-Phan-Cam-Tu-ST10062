@@ -1,5 +1,5 @@
-import ShopifyList from "./ShopifyList";
-import shopifys from "../../../shared/constant/shopify";
+import ShopifyList from './ShopifyList';
+import shopifys from '../../../shared/constant/shopify';
 
 const SectionShopify = () => {
   return (
