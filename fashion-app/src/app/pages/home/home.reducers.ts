@@ -9,7 +9,7 @@ interface IInitialState {
 
 export const initialState: IInitialState = {
   data: [],
-  error: "",
+  error: '',
   isLoading: true,
 };
 

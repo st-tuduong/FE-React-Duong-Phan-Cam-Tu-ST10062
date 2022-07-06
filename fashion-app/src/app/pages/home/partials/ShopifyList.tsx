@@ -11,6 +11,7 @@ const ShopifyList = ({ shopifys }: IShopifyListProps) => {
       {shopifys.map((shopify) => {
         return (
           <ShopifyItem
+            key={shopify.title}
             img={shopify.img}
             alt={shopify.alt}
             title={shopify.title}

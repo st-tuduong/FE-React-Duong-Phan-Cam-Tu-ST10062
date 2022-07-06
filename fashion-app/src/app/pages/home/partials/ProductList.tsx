@@ -8,8 +8,8 @@ interface IProductListProps {
 const ProductList = ({ products}: IProductListProps) => {
   return (
     <ul className="product-list row">
-      {products.map((products: IProduct) => {
-        return <ProductItem product={products} />;
+      {products.map((product: IProduct) => {
+        return <ProductItem key={product.id} product={product} />;
       })}
     </ul>
   );

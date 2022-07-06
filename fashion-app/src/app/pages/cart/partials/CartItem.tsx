@@ -1,7 +1,7 @@
 import { useDispatch} from 'react-redux';
 import Button from '../../../shared/components/partials/Button';
 import { ICart } from '../../../shared/interfaces/cart';
-import { addCart, handleCart, removeCart } from '../../cart/cart.actions';
+import { handleQuantityCart, removeCart } from '../../cart/cart.actions';
 
 interface ICartItemProps {
   cart: ICart;
@@ -22,13 +22,13 @@ const CartItem = ({ cart }: ICartItemProps) => {
 
   const handleIncreaseQuantity = () => {
     dispatch(
-      handleCart(cart, 1)
+      handleQuantityCart(cart, 1)
     );
   };
 
   const handleDecreaseQuantity = () => {
     dispatch(
-      handleCart(cart, -1)
+      handleQuantityCart(cart, -1)
     );
   };
 
@@ -53,12 +53,7 @@ const CartItem = ({ cart }: ICartItemProps) => {
           onClick={handleDecreaseQuantity}
           text={<i className="fa-solid fa-minus"></i>}
         />
-        <input
-          className="quantity-input"
-          type="text"
-          name="quantity"
-          value={cart.qty}
-        />
+        <span>{cart.qty}</span>
         <Button
           classButton="quantity-up"
           onClick={handleIncreaseQuantity}

@@ -1,16 +1,16 @@
 import CartItem from './CartItem';
 import { ICart } from '../../../shared/interfaces/cart';
+import { useSelector } from 'react-redux';
 
-interface ICartListProps {
-  cart: any;
-}
 
-const CartList = ({cart}: ICartListProps) => {
+const CartList = () => {
+  const cartData = useSelector((state: any) => state.cart?.data);
   return (
     <tbody className="product-list">
-      {cart.map((cart: ICart) => {
+      {cartData.map((cart: ICart) => {
         return (
           <CartItem
+            key={cart.id}
             cart={cart}
           />
         );

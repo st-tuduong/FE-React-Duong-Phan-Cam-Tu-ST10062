@@ -13,6 +13,7 @@ const CollectionList = ({ collections }: ICollectionListProp) => {
           {collections.map((collection) => {
             return (
               <CollectionItem
+                key={collection.title}
                 classCol={collection.classCol}
                 img={collection.img}
                 alt={collection.alt}

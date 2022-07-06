@@ -1,11 +1,9 @@
 import CampaignItem from './CampaignItem';
-import { ICampaign } from '../../../shared/interfaces/campaign';
 import Icon from '../../../../assets/icon';
+import campaigns from '../../../shared/constant/campaign';
 
-interface ICampaignListProps {
-  campaigns: ICampaign[];
-}
-const Banner = ({ campaigns }: ICampaignListProps) => {
+
+const Banner = () => {
   return (
     <section className="section-banner">
       <div className="container">
@@ -28,6 +26,7 @@ const Banner = ({ campaigns }: ICampaignListProps) => {
           {campaigns.map((campaign) => {
             return (
               <CampaignItem
+                key={campaign.title}
                 img={campaign.img}
                 alt={campaign.alt}
                 title={campaign.title}

@@ -1,21 +1,21 @@
 import * as TYPES from '../../shared/constant/types';
-export const addCart = (cart: any) => {  
+export const addCart = (product: any) => {  
   return {
     type: TYPES.ADD_CART,
-    payload: cart,
+    payload: product,
   };
 };
 
-export const handleCart = (cart: any, value: number) => {
+export const handleQuantityCart = (cart: any, value: number) => {
   return {
     type: TYPES.HANDLE_QUANTITY,
     payload: {cart, value}
   };
 };
 
-export const removeCart = (cart: any) => {
+export const removeCart = (product: any) => {
   return {
     type: TYPES.REMOVE_ITEM,
-    payload: cart,
+    payload: product,
   };
 };

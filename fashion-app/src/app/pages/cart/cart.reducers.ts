@@ -2,57 +2,53 @@ import { getData, storeData } from '../../shared/helpers/localStorage';
 import * as TYPES from '../../shared/constant/types';
 
 const initialState = {
-  cart: getData('cart', []),
+  data: getData('cart', [])
 };
 
 const cartReducer = (state = initialState, action: any) => {
-  switch (action.type) {
+  const { type, payload } = action;
+  const cart = [...state.data];
+  switch (type) {
     case TYPES.ADD_CART: {
-      const newCart = [...state.cart];
-      const productItem: any = newCart.findIndex(
-        (item: any) => item.id === action.payload.id
+      const index: any = cart.findIndex(
+        (item: any) => item.id === payload.id
       );
-      if (productItem < 0) {
+      if (index < 0) {
         return {
           ...state,
-          cart: [...state.cart, { ...action.payload, qty: 1 }],
+          data: [...state.data, ...[{ ...payload, qty: 1 }]],
         };
       } else {
-        newCart[productItem].qty += 1;
+        cart[index].qty += 1;
       }
-      storeData('cart', newCart);
       return {
         ...state,
-        cart: newCart,
+        data: cart,
       };
     }
 
     case TYPES.HANDLE_QUANTITY: {
-      const newCart = [...state.cart];
-      const productItem: any = newCart.findIndex(
-        (item: any) => item.id === action.payload.cart.id
+      const index: any = cart.findIndex(
+        (item: any) => item.id === payload.cart.id
       );
-      newCart[productItem].qty += action.payload.value;
-      if (newCart[productItem].qty === 0) {
-        newCart.splice(productItem, 1);
+      cart[index].qty += payload.value;
+      if (cart[index].qty === 0) {
+        cart.splice(index, 1);
       }
-      storeData('cart', newCart);
       return {
         ...state,
-        cart: newCart,
+        data: cart,
       };
     }
 
     case TYPES.REMOVE_ITEM: {
-      const newCart = [...state.cart];
-      const productItem: any = newCart.findIndex(
+      const index: any = cart.findIndex(
         (item: any) => item.id === action.payload.id
       );
-      newCart.splice(productItem, 1);
-      storeData('cart', newCart);
+      cart.splice(index, 1);
       return {
         ...state,
-        cart: newCart,
+        data: cart,
       };
     }
 
