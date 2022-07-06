@@ -9,32 +9,31 @@ const cartReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case TYPES.ADD_CART: {
       const newCart = [...state.cart];
-      const productItem: any = newCart.find(
+      const productItem: any = newCart.findIndex(
         (item: any) => item.id === action.payload.id
       );
-      if (productItem) {
-        productItem.qty += 1;
-        storeData('cart', newCart);
-        return {
-          ...state,
-          cart: newCart,
-        };
-      } else {
-        storeData('cart', newCart);
+      if (productItem < 0) {
         return {
           ...state,
           cart: [...state.cart, { ...action.payload, qty: 1 }],
         };
+      } else {
+        newCart[productItem].qty += 1;
       }
+      storeData('cart', newCart);
+      return {
+        ...state,
+        cart: newCart,
+      };
     }
 
-    case TYPES.HANDLE_QUANTITY: {      
+    case TYPES.HANDLE_QUANTITY: {
       const newCart = [...state.cart];
       const productItem: any = newCart.findIndex(
         (item: any) => item.id === action.payload.cart.id
       );
       newCart[productItem].qty += action.payload.value;
-      if(newCart[productItem].qty === 0) {
+      if (newCart[productItem].qty === 0) {
         newCart.splice(productItem, 1);
       }
       storeData('cart', newCart);

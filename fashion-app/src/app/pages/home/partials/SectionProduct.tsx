@@ -1,5 +1,6 @@
 import ProductList from './ProductList';
 import TitleProduct from '../../../shared/components/partials/SectionTitle';
+import products from "../../../shared/constant/product"
 import { IProduct } from '../../../shared/interfaces/product';
 
 interface ISectionProductProps {
