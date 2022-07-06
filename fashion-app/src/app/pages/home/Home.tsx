@@ -7,26 +7,18 @@ import {
 } from './partials';
 import campaigns from '../../shared/constant/campaign';
 import collections from '../../shared/constant/collection';
-import { useEffect, useState } from 'react';
-import { IProduct } from '../../shared/interfaces/product';
-import axios from 'axios';
+import { useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPosts } from './home.actions';
 
 const Home = () => {
-  const [products, setProduct] = useState<IProduct[]>([]);
-  const [load, setLoad] = useState<boolean>(true);
+  const {data, isLoading} = useSelector((state: any) => state.home)
+  const dispatch = useDispatch();
   useEffect(() => {
-    axios
-      .get('https://6088e20da6f4a300174271e7.mockapi.io/products')
-      .then((response) => {
-        setProduct(response.data);
-        setLoad(false);
-      })
-      .catch((error) => {
-        setLoad(true);
-      });
-  }, []);
+    dispatch<any>(getPosts());
+  }, [])
 
-  return load ? (
+  return isLoading ? (
     <div className="spinner-container">
       <p className="spinner-text">Loading...</p>
       <div className="loading-spinner"></div>
@@ -36,12 +28,12 @@ const Home = () => {
       <Banner campaigns={campaigns} />
       <CollectionList collections={collections} />
       <SectionProduct
-        products={products}
+        products={data}
         title="Selected just for you"
         hasButton
       />
       <SectionShopify />
-      <SectionProduct products={products} title="Products in today" />
+      <SectionProduct products={data} title="Products in today" />
       <Subscribe />
     </main>
   );

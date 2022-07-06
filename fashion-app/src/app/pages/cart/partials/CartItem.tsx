@@ -1,7 +1,7 @@
 import { useDispatch} from 'react-redux';
 import Button from '../../../shared/components/partials/Button';
 import { ICart } from '../../../shared/interfaces/cart';
-import { addCart, decreaseCart, removeCart } from '../../cart/cart.actions';
+import { addCart, handleCart, removeCart } from '../../cart/cart.actions';
 
 interface ICartItemProps {
   cart: ICart;
@@ -22,13 +22,13 @@ const CartItem = ({ cart }: ICartItemProps) => {
 
   const handleIncreaseQuantity = () => {
     dispatch(
-      addCart(cart)
+      handleCart(cart, 1)
     );
   };
 
   const handleDecreaseQuantity = () => {
     dispatch(
-      decreaseCart(cart)
+      handleCart(cart, -1)
     );
   };
 

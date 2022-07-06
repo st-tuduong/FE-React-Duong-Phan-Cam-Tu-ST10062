@@ -8,13 +8,21 @@ import "./App.css";
 import "../src/stylesheet/styles.css";
 import { storeData } from "./app/shared/helpers/localStorage";
 import products from "./app/shared/constant/product";
+import { applyMiddleware, createStore } from "redux";
+import thunk from "redux-thunk";
+import {logger} from "redux-logger";
+import appReducer from "./app/app.reducers";
+import { Provider } from "react-redux";
 
 const App = () => {
-  useEffect(() => {
-    storeData('products', products);
-  }, []);
+  // useEffect(() => {
+  //   storeData('products', products);
+  // }, []);
+  const middlewares = applyMiddleware(thunk, logger);
+  const store = createStore(appReducer, middlewares)
 
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <Header />
       <Routes>
@@ -23,6 +31,7 @@ const App = () => {
       </Routes>
       <Footer />
     </BrowserRouter>
+    </Provider>
   );
 };
 

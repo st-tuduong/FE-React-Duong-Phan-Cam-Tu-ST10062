@@ -28,12 +28,12 @@ const cartReducer = (state = initialState, action: any) => {
       }
     }
 
-    case TYPES.DECREASE_QUANTITY: {
+    case TYPES.HANDLE_QUANTITY: {      
       const newCart = [...state.cart];
       const productItem: any = newCart.findIndex(
-        (item: any) => item.id === action.payload.id
+        (item: any) => item.id === action.payload.cart.id
       );
-      newCart[productItem].qty -= 1;
+      newCart[productItem].qty += action.payload.value;
       if(newCart[productItem].qty === 0) {
         newCart.splice(productItem, 1);
       }

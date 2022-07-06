@@ -6,16 +6,16 @@ export const addCart = (cart: any) => {
   };
 };
 
-export const decreaseCart = (quantity: any) => {
+export const handleCart = (cart: any, value: number) => {
   return {
-    type: TYPES.DECREASE_QUANTITY,
-    payload: quantity,
+    type: TYPES.HANDLE_QUANTITY,
+    payload: {cart, value}
   };
 };
 
-export const removeCart = (quantity: any) => {
+export const removeCart = (cart: any) => {
   return {
     type: TYPES.REMOVE_ITEM,
-    payload: quantity,
+    payload: cart,
   };
 };
