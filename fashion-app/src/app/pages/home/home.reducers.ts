@@ -34,7 +34,7 @@ export const homeReducer = (state = initialState, action: any) => {
     case TYPES.GET_PRODUCTS_FAILED: {
       return {
         ...state,
-        data: action.payload,
+        data: '',
         error: action.payload.error,
         isLoading: false
       }
