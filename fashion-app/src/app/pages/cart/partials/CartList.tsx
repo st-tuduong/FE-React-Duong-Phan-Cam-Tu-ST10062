@@ -7,11 +7,11 @@ const CartList = () => {
   const cartData = useSelector((state: any) => state.cart?.data);
   return (
     <tbody className="product-list">
-      {cartData.map((cart: ICart) => {
+      {cartData.map((item: ICart) => {
         return (
           <CartItem
-            key={cart.id}
-            cart={cart}
+            key={item.id}
+            item={item}
           />
         );
       })}

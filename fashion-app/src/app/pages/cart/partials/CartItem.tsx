@@ -4,47 +4,47 @@ import { ICart } from '../../../shared/interfaces/cart';
 import { handleQuantityCart, removeCart } from '../../cart/cart.actions';
 
 interface ICartItemProps {
-  cart: ICart;
+  item: ICart;
 }
 
-const CartItem = ({ cart }: ICartItemProps) => {  
+const CartItem = ({ item }: ICartItemProps) => {  
   const dispatch = useDispatch();
 
   const totalCart = (
-    (cart.price - (cart.price * cart.discount) / 100) *
-    cart.qty
+    (item.price - (item.price * item.discount) / 100) *
+    item.qty
   ).toFixed(2);
 
   const productPrice = (
-    cart.price -
-    (cart.price * cart.discount) / 100
+    item.price -
+    (item.price * item.discount) / 100
   ).toFixed(2);
 
   const handleIncreaseQuantity = () => {
     dispatch(
-      handleQuantityCart(cart, 1)
+      handleQuantityCart(item, 1)
     );
   };
 
   const handleDecreaseQuantity = () => {
     dispatch(
-      handleQuantityCart(cart, -1)
+      handleQuantityCart(item, -1)
     );
   };
 
   const handleRemoveItem = () => {
     dispatch(
-      removeCart(cart)
+      removeCart(item)
     );
   };
 
   return (
     <tr className="product-item">
       <td className="product-image cart-img">
-        <img src={cart.image} alt={cart.name} />
+        <img src={item.image} alt={item.name} />
       </td>
       <td className="product-name">
-        <h3>{cart.name}</h3>
+        <h3>{item.name}</h3>
       </td>
       <td className="product-price">${productPrice}</td>
       <td className="cart-quantitybutton">
@@ -53,7 +53,7 @@ const CartItem = ({ cart }: ICartItemProps) => {
           onClick={handleDecreaseQuantity}
           text={<i className="fa-solid fa-minus"></i>}
         />
-        <span>{cart.qty}</span>
+        <span>{item.qty}</span>
         <Button
           classButton="quantity-up"
           onClick={handleIncreaseQuantity}
