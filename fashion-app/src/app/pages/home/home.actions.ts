@@ -20,3 +20,28 @@ export const getPosts = () => async (dispatch: Dispatch<AnyAction>) => {
     });
   }
 };
+
+// export const getCategory = () => async (dispatch : Dispatch<AnyAction>) => {
+//   try {
+//     dispatch({ type: TYPES.GET_CATEGORIES });
+//     const res = await axios.get(
+//       'https://6088e20da6f4a300174271e7.mockapi.io/products'
+//     );
+//     dispatch({
+//       type: TYPES.GET_CATEGORIES_SUCCESS,
+//       payload: res.data.category,
+//     });
+//   } catch (error) {
+//     dispatch({
+//       type: TYPES.GET_PRODUCTS_FAILED,
+//       payload: error,
+//     });
+//   }
+// }
+
+  export const getCategory = (category: any) => {
+    return {
+      type: TYPES.GET_CATEGORIES,
+      payload: category
+    }
+  }

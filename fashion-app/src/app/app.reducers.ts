@@ -4,7 +4,7 @@ import { homeReducer } from "./pages/home/home.reducers";
 
 const appReducer = combineReducers({
   cart: cartReducer,
-  home: homeReducer
+  home: homeReducer,
 });
 
 export default appReducer;
