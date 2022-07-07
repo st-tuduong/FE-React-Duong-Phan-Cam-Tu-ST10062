@@ -3,9 +3,10 @@ import { IProduct } from '../../../shared/interfaces/product';
 
 interface IProductListProps {
   products: IProduct[];
+  checked: any;
 }
 
-const ProductList = ({ products}: IProductListProps) => {
+const ProductList = ({ checked, products}: IProductListProps) => {
   return (
     <ul className="product-list row">
       {products.map((product: IProduct) => {

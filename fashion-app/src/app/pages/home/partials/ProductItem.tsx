@@ -1,21 +1,23 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../../shared/components/partials/Button';
 import { IProduct } from '../../../shared/interfaces/product';
 import { addCart } from '../../cart/cart.actions';
 
 interface IProductItemProps {
-  product: IProduct;
+  product: any;
 }
 
 const ProductItem = ({product }: IProductItemProps) => {
   const categories = useSelector((state: any) => state.categories.dataCategory)
   const getCategoriesItem = categories.find((item: any) => item.id === +product.category)
   const dispatch = useDispatch();
+
   const handleAddCart = () => {
     dispatch(addCart(product));
   };
 
-  return (
+  return (  
     <li className="product-item product-sale col-3 col-sm-6">
       <div className="product-img">
         {product.discount !== 0 && (
@@ -47,7 +49,7 @@ const ProductItem = ({product }: IProductItemProps) => {
           <span className="item-current-price">${product.price}</span>
         )}
       </div>
-      <p>{getCategoriesItem.name}</p>
+      <p>{getCategoriesItem.name}</p> 
     </li>
   );
 };

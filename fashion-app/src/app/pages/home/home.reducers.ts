@@ -25,7 +25,7 @@ export const initialStateCategory: IInitialStateCategory = {
 };
 
 
-export const homeReducer = (state = initialState, action: any) => {
+export const productReducer = (state = initialState, action: any) => {
   switch(action.type) {
     case TYPES.GET_PRODUCTS: {
       return {
@@ -57,7 +57,7 @@ export const homeReducer = (state = initialState, action: any) => {
   }
 };
 
-export const homeCategoriesReducer = (
+export const categoryReducer = (
   state = initialStateCategory,
   action: any
 ) => {

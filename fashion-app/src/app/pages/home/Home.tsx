@@ -1,13 +1,13 @@
-import { useEffect} from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState} from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories, getProducts } from './home.actions';
 import {Banner,CollectionList,SectionProduct,SectionShopify,Subscribe} from './partials';
 import collections from '../../shared/constant/collection';
+import { IProduct } from '../../shared/interfaces/product';
 
 const Home = () => {
-  const {data, isLoading} = useSelector((state: any) => state.home)
-
+  const {data, isLoading} = useSelector((state: any) => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
