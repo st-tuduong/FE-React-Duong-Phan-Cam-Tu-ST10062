@@ -1,14 +1,15 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../../shared/components/partials/Button';
 import { IProduct } from '../../../shared/interfaces/product';
 import { addCart } from '../../cart/cart.actions';
 
 interface IProductItemProps {
   product: IProduct;
-  category: any
 }
 
-const ProductItem = ({category, product }: IProductItemProps) => {
+const ProductItem = ({product }: IProductItemProps) => {
+  const categories = useSelector((state: any) => state.categories.dataCategory)
+  const getCategoriesItem = categories.find((item: any) => item.id === +product.category)
   const dispatch = useDispatch();
   const handleAddCart = () => {
     dispatch(addCart(product));
@@ -46,7 +47,7 @@ const ProductItem = ({category, product }: IProductItemProps) => {
           <span className="item-current-price">${product.price}</span>
         )}
       </div>
-      <p>{category.id}</p>
+      <p>{getCategoriesItem.name}</p>
     </li>
   );
 };

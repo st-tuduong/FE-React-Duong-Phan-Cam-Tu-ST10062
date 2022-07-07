@@ -18,9 +18,9 @@ export const getCategories = () => ({
   type: TYPES.GET_CATEGORIES,
 });
 
-export const getCategoriesSuccess = (products: any) => ({
+export const getCategoriesSuccess = (categories: any) => ({
   type: TYPES.GET_CATEGORIES_SUCCESS,
-  payload: products,
+  payload: categories,
 });
 
 export const getCategoriesError = (error: any) => ({

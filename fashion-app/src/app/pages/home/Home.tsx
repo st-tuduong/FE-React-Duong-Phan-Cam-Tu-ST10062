@@ -7,7 +7,7 @@ import collections from '../../shared/constant/collection';
 
 const Home = () => {
   const {data, isLoading} = useSelector((state: any) => state.home)
-  const {categories} = useSelector((state: any) => state.categories)
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,7 +30,6 @@ const Home = () => {
       <Banner />
       <CollectionList collections={collections} />
       <SectionProduct
-        categories = {categories} 
         products = {data}
         title="Selected just for you"
         hasButton
@@ -38,7 +37,6 @@ const Home = () => {
       <SectionShopify />
       <SectionProduct 
         products = {data}
-        categories = {categories} 
         title="Products in today" />
       <Subscribe />
     </main>

@@ -7,7 +7,7 @@ interface IInitialStateHome {
 }
 
 interface IInitialStateCategory {
-  categories: [];
+  dataCategory: [];
   error: string;
   isLoading: boolean;
 }
@@ -18,8 +18,8 @@ export const initialState: IInitialStateHome = {
   isLoading: true,
 };
 
-export const IInitialStateCategory: IInitialStateCategory = {
-  categories: [],
+export const initialStateCategory: IInitialStateCategory = {
+  dataCategory: [],
   error: '',
   isLoading: true,
 };
@@ -58,7 +58,7 @@ export const homeReducer = (state = initialState, action: any) => {
 };
 
 export const homeCategoriesReducer = (
-  state = initialState,
+  state = initialStateCategory,
   action: any
 ) => {
   switch (action.type) {
@@ -71,7 +71,7 @@ export const homeCategoriesReducer = (
     case TYPES.GET_CATEGORIES_SUCCESS:
       return {
         ...state,
-        categories: action.payload,
+        dataCategory: action.payload,
         isLoading: false,
         error: '',
       };

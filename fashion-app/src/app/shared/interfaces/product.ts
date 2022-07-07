@@ -6,4 +6,5 @@ export interface IProduct {
   discount: number;
   cart?: any;
   setCart?: any;
+  category?:any;
 }
