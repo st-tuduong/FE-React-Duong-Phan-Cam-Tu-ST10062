@@ -1,22 +1,18 @@
-import {
-  Banner,
-  CollectionList,
-  SectionProduct,
-  SectionShopify,
-  Subscribe,
-} from './partials';
-import collections from '../../shared/constant/collection';
 import { useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPosts } from './home.actions';
+import { getCategories, getProducts } from './home.actions';
+import {Banner,CollectionList,SectionProduct,SectionShopify,Subscribe} from './partials';
+import collections from '../../shared/constant/collection';
 
 const Home = () => {
   const {data, isLoading} = useSelector((state: any) => state.home)
+  const {categories} = useSelector((state: any) => state.categories)
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch<any>(getPosts());
+    dispatch(getProducts());
+    dispatch(getCategories());
   }, [])
 
   const location = useLocation();
@@ -34,13 +30,15 @@ const Home = () => {
       <Banner />
       <CollectionList collections={collections} />
       <SectionProduct
+        categories = {categories} 
         products = {data}
         title="Selected just for you"
         hasButton
       />
       <SectionShopify />
       <SectionProduct 
-        products = {data} 
+        products = {data}
+        categories = {categories} 
         title="Products in today" />
       <Subscribe />
     </main>

@@ -1,19 +1,19 @@
 import ProductList from './ProductList';
 import TitleProduct from '../../../shared/components/partials/SectionTitle';
-import products from '../../../shared/constant/product'
 import { IProduct } from '../../../shared/interfaces/product';
 
 interface ISectionProductProps {
+  categories: any
   products: IProduct[];
   title: string;
   hasButton?: boolean;
 }
-const SectionProduct = ({products,title, hasButton}: ISectionProductProps) => {
+const SectionProduct = ({categories, products,title, hasButton}: ISectionProductProps) => {
   return (
     <section className="section-foryou">
       <div className="container">
         <TitleProduct title={title} hasButton={hasButton} />
-        <ProductList products = {products}/>
+        <ProductList products = {products} categories= {categories}/>
       </div>
     </section>
   );

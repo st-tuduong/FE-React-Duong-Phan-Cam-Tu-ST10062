@@ -5,9 +5,10 @@ import { addCart } from '../../cart/cart.actions';
 
 interface IProductItemProps {
   product: IProduct;
+  category: any
 }
 
-const ProductItem = ({ product }: IProductItemProps) => {
+const ProductItem = ({category, product }: IProductItemProps) => {
   const dispatch = useDispatch();
   const handleAddCart = () => {
     dispatch(addCart(product));
@@ -45,6 +46,7 @@ const ProductItem = ({ product }: IProductItemProps) => {
           <span className="item-current-price">${product.price}</span>
         )}
       </div>
+      <p>{category.id}</p>
     </li>
   );
 };

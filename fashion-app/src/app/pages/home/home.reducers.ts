@@ -1,17 +1,29 @@
 import * as TYPES from '../../shared/constant/types';
-import { IProduct } from '../../shared/interfaces/product';
 
-interface IInitialState {
-  data: IProduct[];
+interface IInitialStateHome {
+  data: [];
   error: string;
   isLoading: boolean;
 }
 
-export const initialState: IInitialState = {
+interface IInitialStateCategory {
+  categories: [];
+  error: string;
+  isLoading: boolean;
+}
+
+export const initialState: IInitialStateHome = {
   data: [],
   error: '',
   isLoading: true,
 };
+
+export const IInitialStateCategory: IInitialStateCategory = {
+  categories: [],
+  error: '',
+  isLoading: true,
+};
+
 
 export const homeReducer = (state = initialState, action: any) => {
   switch(action.type) {
@@ -26,7 +38,7 @@ export const homeReducer = (state = initialState, action: any) => {
       return {
         ...state,
         data: action.payload,
-        error: null,
+        error: '',
         isLoading: false
       }
     }
@@ -35,7 +47,7 @@ export const homeReducer = (state = initialState, action: any) => {
       return {
         ...state,
         data: '',
-        error: action.payload.error,
+        error: action.payload,
         isLoading: false
       }
     }
@@ -43,5 +55,35 @@ export const homeReducer = (state = initialState, action: any) => {
     default:
       return state;
   }
-  
+};
+
+export const homeCategoriesReducer = (
+  state = initialState,
+  action: any
+) => {
+  switch (action.type) {
+    case TYPES.GET_CATEGORIES:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    case TYPES.GET_CATEGORIES_SUCCESS:
+      return {
+        ...state,
+        categories: action.payload,
+        isLoading: false,
+        error: '',
+      };
+
+    case TYPES.GET_CATEGORIES_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
 };

@@ -4,16 +4,20 @@ import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import {logger} from 'redux-logger';
 import appReducer from './app/app.reducers';
+import createSagaMiddleware from 'redux-saga';
 import { Provider, useSelector} from 'react-redux';
 import Page from './app/pages/Page';
 import Home from './app/pages/home/Home';
 import Cart from './app/pages/cart/Cart';
 import './App.css';
 import '../src/stylesheet/styles.css';
+import appMiddleware from './app/app.middlewares';
 
 const App = () => {
-  const middlewares = applyMiddleware(thunk, logger);
-  const store = createStore(appReducer, middlewares)
+  const middlewares = createSagaMiddleware();
+  const store = createStore(appReducer, applyMiddleware(middlewares, logger));
+
+  middlewares.run(appMiddleware);
 
   return (
     <Provider store={store}>
