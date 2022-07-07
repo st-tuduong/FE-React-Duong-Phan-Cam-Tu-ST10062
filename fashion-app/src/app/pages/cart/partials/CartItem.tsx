@@ -1,76 +1,62 @@
-import React, { useState } from "react";
-import Button from "../../../shared/components/partials/Button";
-import { storeData } from "../../../shared/helpers/localStorage";
-import { ICart } from "../../../shared/interfaces/cart";
+import { useDispatch} from 'react-redux';
+import Button from '../../../shared/components/partials/Button';
+import { ICart } from '../../../shared/interfaces/cart';
+import { handleQuantityCart, removeCart } from '../../cart/cart.actions';
 
 interface ICartItemProps {
-  cartItem: ICart;
-  cart: any;
-  setCart: any;
+  item: ICart;
 }
 
-const CartItem = ({ cartItem, cart, setCart }: ICartItemProps) => {
-  const [quantity, setQuantity] = useState(cartItem.qty);
-  const index = cart.findIndex((item: ICart) => item.id === cartItem.id);
+const CartItem = ({ item }: ICartItemProps) => {  
+  const dispatch = useDispatch();
 
   const totalCart = (
-    (cartItem.price - (cartItem.price * cartItem.discount) / 100) *
-    cartItem.qty
+    (item.price - (item.price * item.discount) / 100) *
+    item.qty
   ).toFixed(2);
 
   const productPrice = (
-    cartItem.price -
-    (cartItem.price * cartItem.discount) / 100
+    item.price -
+    (item.price * item.discount) / 100
   ).toFixed(2);
 
-  // const handleChange = (e: any) => {
-  //   const newValue = e.target.value;
-  //   setQuantity(newValue);
-  //   setCart([...cart]);
-  //   storeData('cart', [...cart])
-  // };
+  const handleIncreaseQuantity = () => {
+    dispatch(
+      handleQuantityCart(item, 1)
+    );
+  };
 
-  const handleUpdateQuantity = (value: number) => {
-    cart[index].qty += value;
-    setQuantity(quantity + value);
-    if (cartItem.qty === 0) {
-      cart.splice(index, 1);
-    }
-    setCart([...cart]);
-    storeData("cart", [...cart]);
+  const handleDecreaseQuantity = () => {
+    dispatch(
+      handleQuantityCart(item, -1)
+    );
   };
 
   const handleRemoveItem = () => {
-    cart.splice(index, 1);
-    setCart([...cart]);
-    storeData("cart", [...cart]);
+    dispatch(
+      removeCart(item)
+    );
   };
 
   return (
     <tr className="product-item">
       <td className="product-image cart-img">
-        <img src={cartItem.img} alt={cartItem.name} />
+        <img src={item.image} alt={item.name} />
       </td>
       <td className="product-name">
-        <h3>{cartItem.name}</h3>
+        <h3>{item.name}</h3>
       </td>
       <td className="product-price">${productPrice}</td>
       <td className="cart-quantitybutton">
         <Button
           classButton="quantity-down"
-          onClick={() => handleUpdateQuantity(-1)}
+          onClick={handleDecreaseQuantity}
           text={<i className="fa-solid fa-minus"></i>}
         />
-        <input
-          className="quantity-input"
-          type="text"
-          name="quantity"
-          value={quantity}
-          // onChange={handleChange}
-        />
+        <span>{item.qty}</span>
         <Button
           classButton="quantity-up"
-          onClick={() => handleUpdateQuantity(1)}
+          onClick={handleIncreaseQuantity}
           text={<i className="fa-solid fa-plus"></i>}
         />
       </td>

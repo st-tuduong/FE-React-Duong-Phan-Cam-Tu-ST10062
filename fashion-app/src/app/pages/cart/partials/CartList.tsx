@@ -1,21 +1,17 @@
-import CartItem from "./CartItem";
-import { ICart } from "../../../shared/interfaces/cart";
+import CartItem from './CartItem';
+import { ICart } from '../../../shared/interfaces/cart';
+import { useSelector } from 'react-redux';
 
-interface ICartListProps {
-  cart: any;
-  setCart: any;
-}
 
-const CartList = ({ cart, setCart }: ICartListProps) => {
+const CartList = () => {
+  const cartData = useSelector((state: any) => state.cart?.data);
   return (
     <tbody className="product-list">
-      {cart.map((cartItem: ICart) => {
+      {cartData.map((item: ICart) => {
         return (
           <CartItem
-            key={cartItem.id}
-            cartItem={cartItem}
-            setCart={setCart}
-            cart={cart}
+            key={item.id}
+            item={item}
           />
         );
       })}

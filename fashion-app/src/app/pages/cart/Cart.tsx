@@ -1,11 +1,11 @@
-import SectionCart from "./partials/SectionCart";
+import SectionCart from './partials/SectionCart';
 
-const Cart = ({ cart, setCart }: any) => {
+const Cart = () => {
   return (
     <section className="product-view">
       <div className="container">
         <div className="row">
-          <SectionCart cart={cart} setCart={setCart} />
+          <SectionCart />
         </div>
       </div>
     </section>

@@ -1,9 +1,9 @@
-import { ICampaign } from "../../../shared/interfaces/campaign";
+import { ICampaign } from '../../../shared/interfaces/campaign';
 
 const CampaignItem = ({ img, alt, title, text }: ICampaign) => {
   return (
     <>
-      <li className="campaign-item col-4">
+      <li key={title} className="campaign-item col-4">
         <img src={img} alt={alt} />
         <div className="campaign-content">
           <h3>{title}</h3>

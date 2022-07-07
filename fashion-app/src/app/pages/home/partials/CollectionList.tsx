@@ -1,5 +1,5 @@
-import CollectionItem from "./CollectionItem";
-import { ICollection } from "../../../shared/interfaces/collection";
+import CollectionItem from './CollectionItem';
+import { ICollection } from '../../../shared/interfaces/collection';
 
 interface ICollectionListProp {
   collections: ICollection[];
@@ -13,6 +13,7 @@ const CollectionList = ({ collections }: ICollectionListProp) => {
           {collections.map((collection) => {
             return (
               <CollectionItem
+                key={collection.title}
                 classCol={collection.classCol}
                 img={collection.img}
                 alt={collection.alt}
