@@ -43,15 +43,6 @@ export const productReducer = (state = initialState, action: any) => {
       }
     };
 
-    case TYPES.GET_PRODUCTS_FAILED: {
-      return {
-        ...state,
-        data: '',
-        error: action.payload,
-        isLoading: false
-      }
-    };
-
     default:
       return state;
   };

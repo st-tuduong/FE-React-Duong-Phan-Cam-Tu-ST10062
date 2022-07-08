@@ -5,7 +5,7 @@ interface IProductListProps {
   products: IProduct[];
 }
 
-const ProductList = ({products}: IProductListProps) => {
+const ProductList = ({ products }: IProductListProps) => {
   return (
     <ul className="product-list row">
       {products.map((product: IProduct) => {

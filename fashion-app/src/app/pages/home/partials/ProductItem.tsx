@@ -9,7 +9,7 @@ interface IProductItemProps {
 }
 
 const ProductItem = ({product }: IProductItemProps) => {
-  const [categoryName, setCategoryName] = useState();
+  const [categoryName, setCategoryName] = useState([]);
   const categories = useSelector((state: any) => state.categories.dataCategory)
   const dispatch = useDispatch();
 
