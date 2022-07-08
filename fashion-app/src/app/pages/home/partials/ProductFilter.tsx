@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { createSearchParams, useSearchParams } from "react-router-dom";
 
@@ -9,25 +10,21 @@ interface IProductFilterProps {
 const ProductFilter = ({checked, setChecked} :IProductFilterProps) => {
   const categories = useSelector((state: any) => state.categories.dataCategory);
   const [searchParams, setSearchParams] = useSearchParams();
+
   const handleCheckbox = (e: any) => {
     const valueCheck = e.target.value;
     const newChecked = [...checked];
     const index = newChecked.findIndex((item: any) => item === valueCheck);
     
-    if(index == -1) {
+    if (index === -1) {
       newChecked.push(valueCheck);
-      const strCheck = newChecked.join(',');
-      console.log(strCheck)
-      setSearchParams(
-        { category: strCheck }
-      );
-    }else {
+    } else {
       newChecked.splice(index, 1);
     }
+
+    const queryParamStr = newChecked.join(',');
+    setSearchParams({ category: queryParamStr });
     setChecked(newChecked);
-    setSearchParams(
-      { category: valueCheck }
-    );
   }
 
   return (
