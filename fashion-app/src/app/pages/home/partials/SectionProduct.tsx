@@ -1,8 +1,6 @@
 import ProductList from './ProductList';
 import TitleProduct from '../../../shared/components/partials/SectionTitle';
 import { IProduct } from '../../../shared/interfaces/product';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCategories } from '../home.actions';
 import ProductFilter from './ProductFilter';
 import { useState } from 'react';
 

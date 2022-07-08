@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../../shared/components/partials/Button';
-import { IProduct } from '../../../shared/interfaces/product';
 import { addCart } from '../../cart/cart.actions';
 
 interface IProductItemProps {
@@ -9,9 +8,17 @@ interface IProductItemProps {
 }
 
 const ProductItem = ({product }: IProductItemProps) => {
+  const [categoryName, setCategoryName] = useState();
   const categories = useSelector((state: any) => state.categories.dataCategory)
-  const getCategoriesItem = categories.find((item: any) => item.id === +product.category)
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const category = categories.find((item: any) => item.id === +product.category);
+    if (category) {
+      setCategoryName(category.name);
+    }
+  }, [categories]);
+  
 
   const handleAddCart = () => {
     dispatch(addCart(product));
@@ -49,7 +56,7 @@ const ProductItem = ({product }: IProductItemProps) => {
           <span className="item-current-price">${product.price}</span>
         )}
       </div>
-      <p>{getCategoriesItem.name}</p> 
+      <p>{categoryName}</p> 
     </li>
   );
 };
