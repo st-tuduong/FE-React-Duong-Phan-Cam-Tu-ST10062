@@ -25,13 +25,16 @@ const ProductFilter = ({checked, setChecked} :IProductFilterProps) => {
     setSearchParams({ category: queryParamStr });
     setChecked(newChecked);
   }
-
+  
   useEffect(() => {
     const categoryValue = searchParams.get('category');
     if (categoryValue) {
       let checkedArray = [] as any[];
       checkedArray = categoryValue.split(',');
       setChecked(checkedArray);
+    } else if (categoryValue === '') {
+      searchParams.delete('category');
+      setSearchParams(searchParams);
     }
   }, [searchParams])
 
