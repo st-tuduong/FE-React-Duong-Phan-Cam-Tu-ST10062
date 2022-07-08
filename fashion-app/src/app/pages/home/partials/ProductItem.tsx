@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../../shared/components/partials/Button';
+import { IProduct } from '../../../shared/interfaces/product';
 import { addCart } from '../../cart/cart.actions';
 
 interface IProductItemProps {
-  product: any;
+  product: IProduct;
 }
 
 const ProductItem = ({product }: IProductItemProps) => {
