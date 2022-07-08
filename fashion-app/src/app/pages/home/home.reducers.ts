@@ -1,53 +1,80 @@
 import * as TYPES from '../../shared/constant/types';
-import { IProduct } from '../../shared/interfaces/product';
 
-interface IInitialState {
-  data: IProduct[];
-  category: string[];
+interface IInitialStateHome {
+  data: [];
   error: string;
   isLoading: boolean;
-}
+};
 
-export const initialState: IInitialState = {
+interface IInitialStateCategory {
+  dataCategory: [];
+  error: string;
+  isLoading: boolean;
+};
+
+export const initialState: IInitialStateHome = {
   data: [],
-  category: [],
   error: '',
   isLoading: true,
 };
 
-export const homeReducer = (state = initialState, action: any) => {
+export const initialStateCategory: IInitialStateCategory = {
+  dataCategory: [],
+  error: '',
+  isLoading: true,
+};
+
+
+export const productReducer = (state = initialState, action: any) => {
   switch(action.type) {
     case TYPES.GET_PRODUCTS: {
       return {
         ...state,
         isLoading: true
       }
-    }
+    };
 
     case TYPES.GET_PRODUCTS_SUCCESS: {
       return {
         ...state,
         data: action.payload,
-        error: null,
+        error: '',
         isLoading: false
       }
-    }
+    };
 
-    case TYPES.GET_CATEGORIES: {
-      const categoryIndex = state.category.findIndex((category: any) => category === action.payload)
-      if(categoryIndex < -1) {
-        [...state.category].splice(categoryIndex, 1);
-      }else {
-        state.category.push(action.payload);
-      }
+    default:
+      return state;
+  };
+};
+
+export const categoryReducer = (
+  state = initialStateCategory,
+  action: any
+) => {
+  switch (action.type) {
+    case TYPES.GET_CATEGORIES:
       return {
         ...state,
-        category: [...state.category]
-      }
-    }
+        isLoading: true,
+      };
+
+    case TYPES.GET_CATEGORIES_SUCCESS:
+      return {
+        ...state,
+        dataCategory: action.payload,
+        isLoading: false,
+        error: '',
+      };
+
+    case TYPES.GET_CATEGORIES_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+      };
 
     default:
       return state;
   }
-  
 };

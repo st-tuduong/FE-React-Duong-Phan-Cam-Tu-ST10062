@@ -1,28 +1,18 @@
-import {
-  Banner,
-  CollectionList,
-  SectionProduct,
-  SectionShopify,
-  Subscribe,
-} from './partials';
-import collections from '../../shared/constant/collection';
 import { useEffect} from 'react';
-import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPosts } from './home.actions';
+import { getCategories, getProducts } from './home.actions';
+import {Banner,CollectionList,SectionProduct,SectionShopify,Subscribe} from './partials';
+import collections from '../../shared/constant/collection';
 
 const Home = () => {
-  const {data, isLoading} = useSelector((state: any) => state.home)
+  const {data, isLoading} = useSelector((state: any) => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch<any>(getPosts());
-  }, [])
-
-  const location = useLocation();
-  useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location]);
+    dispatch(getProducts());
+    dispatch(getCategories());
+  }, []);
 
   return isLoading ? (
     <div className="spinner-container">
@@ -40,7 +30,7 @@ const Home = () => {
       />
       <SectionShopify />
       <SectionProduct 
-        products = {data} 
+        products = {data}
         title="Products in today" />
       <Subscribe />
     </main>

@@ -1,47 +1,29 @@
-import axios from 'axios';
-import { Dispatch } from 'react';
-import { AnyAction } from 'redux';
 import * as TYPES from '../../shared/constant/types';
 
-export const getPosts = () => async (dispatch: Dispatch<AnyAction>) => {
-  try {
-    dispatch({ type: TYPES.GET_PRODUCTS });
-    const res = await axios.get(
-      'https://6088e20da6f4a300174271e7.mockapi.io/products'
-    );
-    dispatch({
-      type: TYPES.GET_PRODUCTS_SUCCESS,
-      payload: res.data,
-    });
-  } catch (error) {
-    dispatch({
-      type: TYPES.GET_PRODUCTS_FAILED,
-      payload: error,
-    });
-  }
-};
+export const getProducts = () => ({
+  type: TYPES.GET_PRODUCTS
+});
 
-// export const getCategory = () => async (dispatch : Dispatch<AnyAction>) => {
-//   try {
-//     dispatch({ type: TYPES.GET_CATEGORIES });
-//     const res = await axios.get(
-//       'https://6088e20da6f4a300174271e7.mockapi.io/products'
-//     );
-//     dispatch({
-//       type: TYPES.GET_CATEGORIES_SUCCESS,
-//       payload: res.data.category,
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: TYPES.GET_PRODUCTS_FAILED,
-//       payload: error,
-//     });
-//   }
-// }
+export const getProductsSuccess = (products: any) => ({
+  type: TYPES.GET_PRODUCTS_SUCCESS,
+  payload: products
+});
 
-  export const getCategory = (category: any) => {
-    return {
-      type: TYPES.GET_CATEGORIES,
-      payload: category
-    }
-  }
+export const getProductsError = (error: any) => ({
+  type: TYPES.GET_PRODUCTS_FAILED,
+  payload: error
+});
+
+export const getCategories = () => ({
+  type: TYPES.GET_CATEGORIES,
+});
+
+export const getCategoriesSuccess = (categories: any) => ({
+  type: TYPES.GET_CATEGORIES_SUCCESS,
+  payload: categories,
+});
+
+export const getCategoriesError = (error: any) => ({
+  type: TYPES.GET_CATEGORIES_ERROR,
+  payload: error,
+});
