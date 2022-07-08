@@ -6,7 +6,6 @@ import { environment } from '../../config/environment';
 import { ENDPOINT } from '../../config/endpoint';
 
 export function* getProducts() {
-  console.log(`${environment.apiBaseUrl}/${ENDPOINT.products}`)
   try {
     const res: AxiosResponse<any> = yield axios.get(`${environment.apiBaseUrl}/${ENDPOINT.products.index}`);
     yield put(getProductsSuccess(res.data));
