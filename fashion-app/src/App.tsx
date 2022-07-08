@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
 import {logger} from 'redux-logger';
+import appMiddleware from './app/app.middlewares';
 import appReducer from './app/app.reducers';
 import createSagaMiddleware from 'redux-saga';
 import { Provider} from 'react-redux';
@@ -10,7 +11,6 @@ import Home from './app/pages/home/Home';
 import Cart from './app/pages/cart/Cart';
 import './App.css';
 import '../src/stylesheet/styles.css';
-import appMiddleware from './app/app.middlewares';
 
 const App = () => {
   const middlewares = createSagaMiddleware();

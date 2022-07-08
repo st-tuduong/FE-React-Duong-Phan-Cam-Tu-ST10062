@@ -4,13 +4,13 @@ interface IInitialStateHome {
   data: [];
   error: string;
   isLoading: boolean;
-}
+};
 
 interface IInitialStateCategory {
   dataCategory: [];
   error: string;
   isLoading: boolean;
-}
+};
 
 export const initialState: IInitialStateHome = {
   data: [],
@@ -32,7 +32,7 @@ export const productReducer = (state = initialState, action: any) => {
         ...state,
         isLoading: true
       }
-    }
+    };
 
     case TYPES.GET_PRODUCTS_SUCCESS: {
       return {
@@ -41,7 +41,7 @@ export const productReducer = (state = initialState, action: any) => {
         error: '',
         isLoading: false
       }
-    }
+    };
 
     case TYPES.GET_PRODUCTS_FAILED: {
       return {
@@ -50,11 +50,11 @@ export const productReducer = (state = initialState, action: any) => {
         error: action.payload,
         isLoading: false
       }
-    }
+    };
 
     default:
       return state;
-  }
+  };
 };
 
 export const categoryReducer = (

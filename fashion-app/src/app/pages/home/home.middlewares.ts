@@ -13,7 +13,7 @@ export function* getProducts() {
   } catch (error) {
     yield put(getProductsError(error));
   }
-}
+};
 
 export function* getCategories() {
   try {
@@ -22,11 +22,11 @@ export function* getCategories() {
   } catch (error) {
     yield put(getCategoriesError(error));
   }
-}
+};
 
 export function* watchProducts() {
   yield all([
     takeLatest(TYPES.GET_PRODUCTS, getProducts),
     takeLatest(TYPES.GET_CATEGORIES, getCategories)
-  ]);
-}
+  ])
+};

@@ -20,7 +20,6 @@ const ProductItem = ({product }: IProductItemProps) => {
     }
   }, [categories]);
   
-
   const handleAddCart = () => {
     dispatch(addCart(product));
   };
