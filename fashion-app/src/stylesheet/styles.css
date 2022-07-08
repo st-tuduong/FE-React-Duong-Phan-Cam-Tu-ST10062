@@ -602,6 +602,10 @@ table {
   text-align: center;
 }
 
+.checkbox-category .form-control {
+  margin: 0 10px;
+}
+
 .cart-product {
   width: 150px;
 }
